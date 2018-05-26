@@ -2,7 +2,7 @@ package App;
 
 import java.io.File;
 
-public class CommandLineParser {
+public class CommandLineInterface {
     public String getFile(String[] args){
         if (args == null || args.length == 0)
             return null;
@@ -11,6 +11,14 @@ public class CommandLineParser {
             return null;
 
         return args[0];
+    }
+
+    public void printParameters(ParameterFileParser parameterFileParser){
+        System.out.println("Input parameters:");
+        System.out.println("DocFiles=" + parameterFileParser.getDocFiles());
+        System.out.println("OutputFile=" + parameterFileParser.getOutputFile());
+        System.out.println("QueryFile=" + parameterFileParser.getQueryFile());
+        System.out.println("RetrievalAlgorithm=" + parameterFileParser.getRetrievalAlgorithm());
     }
 
     public void printHelp(){
