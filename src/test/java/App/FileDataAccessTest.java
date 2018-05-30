@@ -12,13 +12,29 @@ import java.util.Dictionary;
 
 public class FileDataAccessTest {
     @Test
-    public void parseDocsDocuments_MultipleFiles_ReturnDictionary() throws IOException {
+    public void parseQueriesFile_MultipleQueries_ReturnDictionary() throws IOException {
+        // Arrange
+        String path = getFilePathFromResources("TestQueriesFile");
+        FileDataAccess fileDataAccess = new FileDataAccess();
+
+        // Act
+        Dictionary<String, String> result = fileDataAccess.parseQueriesFile(path);
+
+        // Assert
+        Assertions.assertEquals(3, result.size());
+        Assertions.assertNotNull(result.get("14"));
+        Assertions.assertNotNull(result.get("34"));
+        Assertions.assertNotNull(result.get("2"));
+    }
+
+    @Test
+    public void parseDocsFile_MultipleDocs_ReturnDictionary() throws IOException {
         // Arrange
         String path = getFilePathFromResources("TestDocsFile");
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         // Act
-        Dictionary<String, String> result = fileDataAccess.parseDocsDocuments(path);
+        Dictionary<String, String> result = fileDataAccess.parseDocsFile(path);
 
         // Assert
         Assertions.assertEquals(2, result.size());

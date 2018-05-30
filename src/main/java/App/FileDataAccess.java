@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,7 +31,15 @@ public class FileDataAccess {
         return Files.readAllLines(Paths.get(filePath));
     }
 
-    public Dictionary<String, String> parseDocsDocuments(String filePath) throws IOException {
+    public Dictionary<String, String> parseDocsFile(String filePath) throws IOException {
+        return parseFilesToDictionary(filePath, this::getDocId);
+    }
+
+    public Dictionary<String, String> parseQueriesFile(String filePath) throws IOException {
+        return parseFilesToDictionary(filePath, this::getQueryId);
+    }
+
+    public Dictionary<String, String> parseFilesToDictionary(String filePath, Function<String, String> keyParser) throws IOException {
         Dictionary<String, String> result = new Hashtable<>();
         List<String> lines = readFileLines(filePath);
 
@@ -40,9 +48,9 @@ public class FileDataAccess {
         for (String line : lines) {
             if (line.startsWith("*")){
                 if (!currentFileContent.equals("") && !currentFileTitle.equals("")){
-                    result.put(currentFileTitle, currentFileContent);
+                    result.put(currentFileTitle, currentFileContent.replaceAll("[\r\n]+", " "));
                 }
-                currentFileTitle = getDocName(line);
+                currentFileTitle = keyParser.apply(line);
                 currentFileContent = "";
             }
             else {
@@ -50,15 +58,26 @@ public class FileDataAccess {
             }
         }
 
-        result.put(currentFileTitle, currentFileContent);
+        result.put(currentFileTitle, currentFileContent.replaceAll("[\r\n]+", " "));
         return result;
+
     }
 
-    private String getDocName(String line){
-        Pattern pattern = Pattern.compile("\\*TEXT (?<Title>\\d*) .*");
+    private String getDocId(String line){
+        Pattern pattern = Pattern.compile("\\*TEXT (?<Id>\\d*) .*");
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
-            return matcher.group("Title");
+            return matcher.group("Id");
+        }
+
+        return "";
+    }
+
+    private String getQueryId(String line){
+        Pattern pattern = Pattern.compile("\\*FIND[ \\t]+(?<Id>\\d*)");
+        Matcher matcher = pattern.matcher(line);
+        while (matcher.find()) {
+            return matcher.group("Id");
         }
 
         return "";
