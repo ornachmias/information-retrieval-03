@@ -48,6 +48,12 @@
             <version>1.9.5</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-misc</artifactId>
+            <version>7.3.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>

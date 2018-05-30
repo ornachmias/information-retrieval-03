@@ -50,4 +50,23 @@ public class IntegrationTests {
         Assertions.assertEquals(1, result.size());
         Assertions.assertNotNull(result.contains("11"));
     }
+
+    @Test
+    public void IndexDocuments_TopWords_Return5MostUsedWords() throws Exception {
+        // Arrange
+        RAMDirectory index = new RAMDirectory();
+        IndexModule indexModule = new IndexModule(index);
+        SearchModule searchModule = new SearchModule(index);
+        FileDataAccess fileDataAccess = new FileDataAccess();
+
+        String filePath = TestHelper.getFilePathFromResources("TestDocsFile");
+        Map<String, String> documents = fileDataAccess.parseDocsFile(filePath);
+
+        // Act
+        indexModule.indexDocs(documents);
+        List<String> result = searchModule.getTopWords(5);
+
+        // Assert
+        Assertions.assertEquals(5, result.size());
+    }
 }

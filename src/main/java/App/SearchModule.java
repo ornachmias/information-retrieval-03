@@ -4,6 +4,8 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.misc.HighFreqTerms;
+import org.apache.lucene.misc.TermStats;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
@@ -39,6 +41,19 @@ public class SearchModule {
             result.add(doc.get("id"));
         }
 
+        reader.close();
+        return result;
+    }
+
+    public List<String> getTopWords(int numberOfTopWords) throws Exception {
+        List<String> result = new ArrayList<>();
+        IndexReader reader = DirectoryReader.open(_index);
+        TermStats[] commonTerms = HighFreqTerms.getHighFreqTerms(reader, numberOfTopWords, "content", new HighFreqTerms.TotalTermFreqComparator());
+        for (TermStats commonTerm : commonTerms) {
+            result.add(commonTerm.termtext.utf8ToString());
+        }
+
+        reader.close();
         return result;
     }
 }
