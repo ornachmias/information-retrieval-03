@@ -5,10 +5,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
@@ -20,63 +17,32 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class IndexModule {
-    public static void sampleIndex(String[] args) throws IOException, ParseException, ParseException {
-        // 0. Specify the analyzer for tokenizing text.
-        //    The same analyzer should be used for indexing and searching
+    private RAMDirectory _index;
+    private IndexWriterConfig _config;
+
+    public IndexModule(RAMDirectory index) throws IOException {
         StandardAnalyzer analyzer = new StandardAnalyzer();
-
-        // 1. create the index
-        Directory index = new RAMDirectory();
-
-        IndexWriterConfig config = new IndexWriterConfig(analyzer);
-
-        // This sets TF-IDF similarity with cosine distance - may be used at the adcanced algorithm.
-        // At the basic algorithm, we need to use normal distance - hence we need to imp[lement an other TFIDFSimilarity class.
-        config.setSimilarity(new ClassicSimilarity());
-
-        IndexWriter w = new IndexWriter(index, config);
-        addDoc(w, "Lucene-in-Action us", "193398817");
-        addDoc(w, "Lucene us for Dummies", "55320055Z");
-        addDoc(w, "Managing us Gigabytes", "55063554A");
-        addDoc(w, "The Art of Computer Science", "9900333X");
-        w.close();
-
-        // 2. search string
-        String querystr =  "Lucene us";
-
-        // the "title" arg specifies the default field to use
-        Query q = new QueryParser("title", analyzer).parse(querystr);
-        // 3. search and rank according to the similarity
-        int hitsPerPage = 10;
-        IndexReader reader = DirectoryReader.open(index);
-        IndexSearcher searcher = new IndexSearcher(reader);
-        TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
-        searcher.search(q, collector);
-        ScoreDoc[] hits = collector.topDocs().scoreDocs;
-
-
-        // 4. display results
-        System.out.println("Found " + hits.length + " hits.");
-        for(int i=0;i<hits.length;++i) {
-            int docId = hits[i].doc;
-            System.out.println("Score is " + hits[i].score);
-            Document d = searcher.doc(docId);
-            System.out.println((i + 1) + ". " + d.get("isbn") + "\t" + d.get("title"));
-        }
-
-        // reader can only be closed when there
-        // is no need to access the documents any more.
-        reader.close();
+        _config = new IndexWriterConfig(analyzer);
+        _config.setSimilarity(new ClassicSimilarity());
+        _index = index;
     }
 
-    private static void addDoc(IndexWriter w, String title, String isbn) throws IOException {
-        Document doc = new Document();
-        doc.add(new TextField("title", title, Field.Store.YES));
+    public void indexDocs(Map<String,String> docs) throws IOException {
+        List<Document> documents = new ArrayList<>();
 
-        // use a string field for isbn because we don't want it tokenized
-        doc.add(new StringField("isbn", isbn, Field.Store.YES));
-        w.addDocument(doc);
+        for (String id : docs.keySet()) {
+            Document doc = new Document();
+            doc.add(new TextField("id", id, Field.Store.YES));
+            doc.add(new TextField("content", docs.get(id), Field.Store.YES));
+            documents.add(doc);
+        }
+        IndexWriter indexWriter = new IndexWriter(_index, _config);
+        indexWriter.addDocuments(documents);
+        indexWriter.close();
     }
 }

@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,16 +32,16 @@ public class FileDataAccess {
         return Files.readAllLines(Paths.get(filePath));
     }
 
-    public Dictionary<String, String> parseDocsFile(String filePath) throws IOException {
-        return parseFilesToDictionary(filePath, this::getDocId);
+    public Map<String, String> parseDocsFile(String filePath) throws IOException {
+        return parseFilesToMap(filePath, this::getDocId);
     }
 
-    public Dictionary<String, String> parseQueriesFile(String filePath) throws IOException {
-        return parseFilesToDictionary(filePath, this::getQueryId);
+    public Map<String, String> parseQueriesFile(String filePath) throws IOException {
+        return parseFilesToMap(filePath, this::getQueryId);
     }
 
-    public Dictionary<String, String> parseFilesToDictionary(String filePath, Function<String, String> keyParser) throws IOException {
-        Dictionary<String, String> result = new Hashtable<>();
+    private Map<String, String> parseFilesToMap(String filePath, Function<String, String> keyParser) throws IOException {
+        Map<String, String> result = new Hashtable<>();
         List<String> lines = readFileLines(filePath);
 
         String currentFileTitle = "";
