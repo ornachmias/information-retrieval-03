@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ccd7015-ead0-4ca6-90ba-589213ccc35d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/TestSet01/data/docs.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/TestSet01/data/queries.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/TestSet01/parameters.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/AssignmentLogic.java" afterPath="$PROJECT_DIR$/src/main/java/App/AssignmentLogic.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/FileDataAccess.java" afterPath="$PROJECT_DIR$/src/main/java/App/FileDataAccess.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/SearchModule.java" afterPath="$PROJECT_DIR$/src/main/java/App/SearchModule.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/App/IntegrationTests.java" afterPath="$PROJECT_DIR$/src/test/java/App/IndexSearchIntegrationTests.java" />
       <change beforePath="$PROJECT_DIR$/target/assignment03-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/assignment03-1.0-SNAPSHOT.jar" />
       <change beforePath="$PROJECT_DIR$/target/classes/App/Main.class" afterPath="$PROJECT_DIR$/target/classes/App/Main.class" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
@@ -77,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileDataAccess.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FileDataAccess.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="303">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssignmentLogicIntegrationTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AssignmentLogicIntegrationTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+              <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +98,8 @@
       <file leaf-file-name="SearchModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App/SearchModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="175">
+              <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -168,10 +162,10 @@
         <option value="$PROJECT_DIR$/src/test/resources/TestSet01/parameters.txt" />
         <option value="$PROJECT_DIR$/src/test/resources/TestSet01/data/docs.txt" />
         <option value="$PROJECT_DIR$/src/test/resources/TestSet01/data/queries.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/App/SearchModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/App/FileDataAccess.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/AssignmentLogic.java" />
         <option value="$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App/SearchModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/App/FileDataAccess.java" />
       </list>
     </option>
   </component>
@@ -620,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527756814596</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Finished one working flow">
+      <created>1527774760160</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1527774760160</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -697,7 +698,8 @@
     <MESSAGE value="Add queries parser" />
     <MESSAGE value="(1) Add Search and Index modules&#10;(2) Change lucense demo to work with Maven" />
     <MESSAGE value="(1) Made IndexModule configurable to specific set of stop words&#10;(2) Add class to determine the logic based on given instruction" />
-    <option name="LAST_COMMIT_MESSAGE" value="(1) Made IndexModule configurable to specific set of stop words&#10;(2) Add class to determine the logic based on given instruction" />
+    <MESSAGE value="Finished one working flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished one working flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,18 +709,6 @@
           <line>59</line>
           <properties />
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="24" />
@@ -1103,14 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App/SearchModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="29" lean-forward="false" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-all/1.9.5/mockito-all-1.9.5.jar!/org/mockito/internal/creation/MethodInterceptorFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
@@ -1143,16 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/AssignmentLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="661">
@@ -1166,7 +1138,25 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
-          <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+          <caret line="23" column="48" lean-forward="true" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App/SearchModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

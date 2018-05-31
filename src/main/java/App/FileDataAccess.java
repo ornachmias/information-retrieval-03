@@ -6,9 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,7 +50,17 @@ public class FileDataAccess {
         FileWriter writer = new FileWriter(file.getAbsolutePath());
         String output = "";
         for (String id : results.keySet()) {
-            output += id + " " + String.join(" ", results.get(id)) + "\n";
+            List<Integer> intList = new ArrayList<>();
+
+            for(String s : results.get(id)) intList.add(Integer.valueOf(s));
+            Collections.sort(intList);
+
+            List<String> orderedStringList = new ArrayList<>(intList.size());
+            for (Integer i : intList) {
+                orderedStringList.add(i.toString());
+            }
+
+            output += id + " " + String.join(" ", orderedStringList) + "\n";
         }
 
         writer.write(output);

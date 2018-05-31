@@ -21,6 +21,7 @@ import java.util.List;
 public class SearchModule {
     private RAMDirectory _index;
     private StandardAnalyzer _analyzer;
+    private final float _scoreThreshold = 4;
 
     public SearchModule(RAMDirectory index) {
         _analyzer = new StandardAnalyzer();
@@ -39,7 +40,7 @@ public class SearchModule {
 
         List<String> result = new ArrayList<>();
         for (ScoreDoc hit : hits) {
-            if (hit.score > 4){
+            if (hit.score > _scoreThreshold){
                 Document doc = searcher.doc(hit.doc);
                 result.add(doc.get("id"));
             }
