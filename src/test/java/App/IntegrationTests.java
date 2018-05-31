@@ -1,5 +1,6 @@
 package App;
 
+import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.RAMDirectory;
 import org.junit.jupiter.api.Assertions;
@@ -14,7 +15,7 @@ public class IntegrationTests {
     public void IndexDocuments_SearchDocument_DocumentsReturned() throws IOException, ParseException {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index);
+        IndexModule indexModule = new IndexModule(index, null);
         SearchModule searchModule = new SearchModule(index);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
@@ -35,7 +36,7 @@ public class IntegrationTests {
     public void IndexDocuments_SearchDocument_DocumentReturned() throws IOException, ParseException {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index);
+        IndexModule indexModule = new IndexModule(index, null);
         SearchModule searchModule = new SearchModule(index);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
@@ -55,7 +56,7 @@ public class IntegrationTests {
     public void IndexDocuments_TopWords_Return5MostUsedWords() throws Exception {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index);
+        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET);
         SearchModule searchModule = new SearchModule(index);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
