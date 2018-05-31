@@ -10,11 +10,13 @@ public class ParameterFileParser {
     private String _queryFile;
     private String _docFiles;
     private String _outputFile;
+    private String _truthFile = null;
     private RetrievalAlgorithm _retrievalAlgorithm;
 
     private final String _queryFilePrefix = "queryFile=";
     private final String _docFilesPrefix = "docsFile=";
     private final String _outputFilePrefix = "outputFile=";
+    private final String _truthFilePrefix = "truthFile=";
     private final String _retrievalAlgorithmPrefix = "retrievalAlgorithm=";
 
     public ParameterFileParser(FileDataAccess fileDataAccess) {
@@ -34,6 +36,10 @@ public class ParameterFileParser {
         return _outputFile;
     }
 
+    public String getTruthFile() {
+        return _truthFile;
+    }
+
     public RetrievalAlgorithm getRetrievalAlgorithm() {
         return _retrievalAlgorithm;
     }
@@ -51,6 +57,10 @@ public class ParameterFileParser {
             }
             else if (line.startsWith(_outputFilePrefix)){
                 _outputFile = line.split(_outputFilePrefix)[1];
+            }
+
+            else if (line.startsWith(_truthFilePrefix)){
+                _truthFile = line.split(_truthFilePrefix)[1];
             }
             else if (line.startsWith(_retrievalAlgorithmPrefix)){
                 String value = line.split(_retrievalAlgorithmPrefix)[1];
@@ -82,4 +92,6 @@ public class ParameterFileParser {
             throw new InvalidPropertiesFormatException("RetrievalAlgorithm field was not defined in parameters file.");
         }
     }
+
+
 }

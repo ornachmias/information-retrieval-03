@@ -1,6 +1,8 @@
 package App;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
@@ -16,9 +18,10 @@ public class Main {
         ParameterFileParser parameterFileParser = new ParameterFileParser(fileDataAccess);
 
         try {
-            parameterFileParser.LoadContent(fileName);
-            commandLineInterface.printParameters(parameterFileParser);
-        } catch (IOException e) {
+            AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
+            Map<String, List<String>> result = assignmentLogic.run(fileName);
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

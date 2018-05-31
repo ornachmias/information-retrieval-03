@@ -59,6 +59,11 @@ public class AssignmentLogic {
 
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
 
+        String truthFilePath = _parameterFileParser.getTruthFile();
+        if (truthFilePath != null) {
+            Map truth_content = _fileDataAccess.parseTruthFile(truthFilePath);
+        }
+
         return results;
     }
 }

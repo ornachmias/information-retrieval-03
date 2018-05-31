@@ -38,6 +38,25 @@ public class FileDataAccess {
         return parseFilesToMap(filePath, this::getQueryId);
     }
 
+    public Map<String, List<String>> parseTruthFile(String filePath) throws IOException {
+        Map<String, List<String>> result = new Hashtable<>();
+        Pattern p = Pattern.compile("-?\\d+");
+        List<String> lines = readFileLines(filePath);
+        for (String line : lines) {
+            Matcher m = p.matcher(line);
+            if (!m.find()) {
+                continue;
+            }
+            String query_id = m.group();
+            List <String> docs = new LinkedList<>();
+            result.put(query_id, docs);
+            while (m.find()) {
+                docs.add(m.group());
+            }
+        }
+        return result;
+    }
+
     public void writeResults(String filePath, Map<String, List<String>> results) throws IOException {
         File file = new File(filePath);
         file.getParentFile().mkdirs();
