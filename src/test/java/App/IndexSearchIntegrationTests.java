@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class IntegrationTests {
+public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_SearchDocument_DocumentsReturned() throws IOException, ParseException {
         // Arrange

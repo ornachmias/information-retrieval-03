@@ -28,7 +28,9 @@ public class SearchModule {
     }
 
     public List<String> queryDocs(String queryString, int hitsPerPage) throws ParseException, IOException {
-        Query q = new QueryParser("content", _analyzer).parse(queryString);
+        QueryParser queryParser = new QueryParser("content", _analyzer);
+        queryParser.setSplitOnWhitespace(true);
+        Query q = queryParser.parse(queryString.trim());
         IndexReader reader = DirectoryReader.open(_index);
         IndexSearcher searcher = new IndexSearcher(reader);
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
@@ -37,8 +39,10 @@ public class SearchModule {
 
         List<String> result = new ArrayList<>();
         for (ScoreDoc hit : hits) {
-            Document doc = searcher.doc(hit.doc);
-            result.add(doc.get("id"));
+            if (hit.score > 4){
+                Document doc = searcher.doc(hit.doc);
+                result.add(doc.get("id"));
+            }
         }
 
         reader.close();

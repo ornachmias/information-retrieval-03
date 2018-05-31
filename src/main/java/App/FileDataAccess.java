@@ -2,10 +2,10 @@ package App;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +38,25 @@ public class FileDataAccess {
 
     public Map<String, String> parseQueriesFile(String filePath) throws IOException {
         return parseFilesToMap(filePath, this::getQueryId);
+    }
+
+    public void writeResults(String filePath, Map<String, List<String>> results) throws IOException {
+        File file = new File(filePath);
+        file.getParentFile().mkdirs();
+
+        if (file.exists())
+            file.delete();
+
+        file.createNewFile();
+
+        FileWriter writer = new FileWriter(file.getAbsolutePath());
+        String output = "";
+        for (String id : results.keySet()) {
+            output += id + " " + String.join(" ", results.get(id)) + "\n";
+        }
+
+        writer.write(output);
+        writer.flush();
     }
 
     private Map<String, String> parseFilesToMap(String filePath, Function<String, String> keyParser) throws IOException {
