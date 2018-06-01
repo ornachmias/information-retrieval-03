@@ -21,7 +21,7 @@ import java.util.List;
 public class SearchModule {
     private RAMDirectory _index;
     private StandardAnalyzer _analyzer;
-    private final float _scoreThreshold = 4;
+    private final float _scoreThreshold = 12;
 
     public SearchModule(RAMDirectory index) {
         _analyzer = new StandardAnalyzer();

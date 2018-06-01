@@ -62,6 +62,9 @@ public class AssignmentLogic {
         String truthFilePath = _parameterFileParser.getTruthFile();
         if (truthFilePath != null) {
             Map truth_content = _fileDataAccess.parseTruthFile(truthFilePath);
+            TestingModule tester = new TestingModule(truth_content, results);
+            Measurement measurement = tester.TestQueries();
+            System.out.println(measurement.GetAverageF());
         }
 
         return results;
