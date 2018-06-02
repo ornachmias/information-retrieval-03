@@ -1,5 +1,11 @@
-package App;
+package App.Logic;
 
+import App.FileDataAccess;
+import App.Model.Measurement;
+import App.Modules.IndexModule;
+import App.Modules.SearchModule;
+import App.Modules.TestingModule;
+import App.ParameterFileParser;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.store.RAMDirectory;
 
@@ -61,8 +67,8 @@ public class AssignmentLogic {
 
         String truthFilePath = _parameterFileParser.getTruthFile();
         if (truthFilePath != null) {
-            Map truth_content = _fileDataAccess.parseTruthFile(truthFilePath);
-            TestingModule tester = new TestingModule(truth_content, results);
+            Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
+            TestingModule tester = new TestingModule(truthContent, results);
             Measurement measurement = tester.TestQueries();
             System.out.println(measurement.GetAverageF());
         }

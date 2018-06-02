@@ -1,8 +1,8 @@
-package App;
+package App.Model;
 
 import java.util.Map;
 
-class Measurement {
+public class Measurement {
     private Map<String, SingleMeasurement> _measurements;
 
     public Measurement(Map<String, SingleMeasurement> measurements) {

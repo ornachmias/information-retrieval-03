@@ -1,5 +1,7 @@
 package App;
 
+import App.Logic.AssignmentLogic;
+import App.Model.RetrievalAlgorithm;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

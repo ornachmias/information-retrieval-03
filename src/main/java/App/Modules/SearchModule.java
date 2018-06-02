@@ -1,4 +1,4 @@
-package App;
+package App.Modules;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;

@@ -1,4 +1,4 @@
-package App;
+package App.Modules;
 
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;

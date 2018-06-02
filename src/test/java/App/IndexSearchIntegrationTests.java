@@ -1,5 +1,7 @@
 package App;
 
+import App.Modules.IndexModule;
+import App.Modules.SearchModule;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.RAMDirectory;
