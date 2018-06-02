@@ -7,6 +7,8 @@ import App.Modules.SearchModule;
 import App.Modules.TestingModule;
 import App.ParameterFileParser;
 import org.apache.lucene.analysis.CharArraySet;
+import org.apache.lucene.search.similarities.ClassicSimilarity;
+import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.util.*;
@@ -34,19 +36,22 @@ public class AssignmentLogic {
         Map<String, String> docs =
                 _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
 
+        // Decide on Similarity equation for both index and search
+        Similarity similarity = new ClassicSimilarity();
+
         // We first index the documents without taking stop words into account
         // so we could complete the assignment with stop words based on the documents
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET);
+        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, similarity);
         indexModule.indexDocs(docs);
 
-        SearchModule searchModule = new SearchModule(index);
+        SearchModule searchModule = new SearchModule(index, similarity);
         List<String> stopWords = searchModule.getTopWords(20);
 
         // Reset objects and re-index using new stop words
         index = new RAMDirectory();
-        indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)));
-        searchModule = new SearchModule(index);
+        indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)), similarity);
+        searchModule = new SearchModule(index, similarity);
         indexModule.indexDocs(docs);
 
         // Parse queries

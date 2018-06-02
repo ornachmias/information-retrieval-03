@@ -12,6 +12,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
+import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
@@ -21,10 +22,12 @@ import java.util.List;
 public class SearchModule {
     private RAMDirectory _index;
     private StandardAnalyzer _analyzer;
+    private Similarity _similarity;
     private final float _scoreThreshold = 12;
 
-    public SearchModule(RAMDirectory index) {
+    public SearchModule(RAMDirectory index, Similarity similarity) {
         _analyzer = new StandardAnalyzer();
+        _similarity = similarity;
         _index = index;
     }
 
@@ -34,6 +37,7 @@ public class SearchModule {
         Query q = queryParser.parse(queryString.trim());
         IndexReader reader = DirectoryReader.open(_index);
         IndexSearcher searcher = new IndexSearcher(reader);
+        searcher.setSimilarity(_similarity);
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
         searcher.search(q, collector);
         ScoreDoc[] hits = collector.topDocs().scoreDocs;

@@ -8,6 +8,7 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
+import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
@@ -18,15 +19,17 @@ import java.util.Map;
 public class IndexModule {
     private RAMDirectory _index;
     private IndexWriterConfig _config;
+    private Similarity _similarity;
 
-    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords) throws IOException {
+    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, Similarity similarity) throws IOException {
         StandardAnalyzer analyzer = new StandardAnalyzer(preDefinedStopWords);
 
         if (preDefinedStopWords == null)
             analyzer = new StandardAnalyzer();
 
+        _similarity = similarity;
         _config = new IndexWriterConfig(analyzer);
-        _config.setSimilarity(new ClassicSimilarity());
+        _config.setSimilarity(_similarity);
         _index = index;
     }
 
