@@ -9,8 +9,6 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-
-
         LogHandler.info("Starting main..");
         CommandLineInterface commandLineInterface = new CommandLineInterface();
         String fileName = commandLineInterface.getFile(args);

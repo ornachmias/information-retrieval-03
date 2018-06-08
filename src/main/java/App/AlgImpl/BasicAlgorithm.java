@@ -17,7 +17,7 @@ public class BasicAlgorithm implements IRetrivalAlgorithm {
 
     public BasicAlgorithm() {
 
-        _th = new BasicThreshold(12);
+        _th = new BasicThreshold(0.96);
     }
 
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {
