@@ -51,7 +51,7 @@ class BasicAlgorithm implements RetrivalAlgInterface {
 
 
 class ImprovedAlgorithm implements RetrivalAlgInterface {
-    Threshold _th = new DynamicThreashold(11);
+    Threshold _th = new DynamicThreashold(1.4);
 
     public ScoreDoc[] FilterResults(ScoreDoc[] hits) {
         return _th.FilterResults(hits);

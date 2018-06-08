@@ -1,27 +1,27 @@
 package App.Model;
-
+import java.util.Arrays;
 
 import org.apache.lucene.search.ScoreDoc;
 
 public class DynamicThreashold implements Threshold {
 
-    private int _th;
+    private double _th;
 
-    public DynamicThreashold(int th) {
+    public DynamicThreashold(double th) {
         _th = th;
     }
 
 
     @Override
     public ScoreDoc[] FilterResults(ScoreDoc[] hits) {
-        // Calculate ceiling for int
-        int a = hits.length;
-        int b = _th;
-        int n = a / b + ((a % b == 0) ? 0 : 1);
-        ScoreDoc[] result = new ScoreDoc[n];
-        for (int i = 0; i < n; i++) {
-            result[i] = hits[i];
+        if (hits.length == 0) {
+            return hits;
         }
+
+        double th  = hits[0].score / _th;
+        ScoreDoc[] result =
+                Arrays.stream(hits).filter(x -> x.score > th).toArray(ScoreDoc[]::new);
+
         return result;
     }
 }
