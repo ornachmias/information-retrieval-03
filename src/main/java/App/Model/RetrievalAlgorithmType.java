@@ -1,7 +1,7 @@
 package App.Model;
 
 
-public enum RetrievalAlgorithm {
+public enum RetrievalAlgorithmType {
     Basic,
     Improved,
     Unknown

@@ -1,5 +1,6 @@
 package App;
 
+import App.AlgImpl.BasicAlgorithm;
 import App.Modules.IndexModule;
 import App.Modules.SearchModule;
 import org.apache.lucene.analysis.CharArraySet;
@@ -18,8 +19,8 @@ public class IndexSearchIntegrationTests {
     public void IndexDocuments_SearchDocument_DocumentsReturned() throws IOException, ParseException {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, null, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, null, new BasicAlgorithm());
+        SearchModule searchModule = new SearchModule(index,new BasicAlgorithm());
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");
@@ -39,8 +40,8 @@ public class IndexSearchIntegrationTests {
     public void IndexDocuments_SearchDocument_DocumentReturned() throws IOException, ParseException {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, null, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, null, new BasicAlgorithm());
+        SearchModule searchModule = new SearchModule(index,new BasicAlgorithm());
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");
@@ -59,8 +60,8 @@ public class IndexSearchIntegrationTests {
     public void IndexDocuments_TopWords_Return5MostUsedWords() throws Exception {
         // Arrange
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, new BasicAlgorithm());
+        SearchModule searchModule = new SearchModule(index,new BasicAlgorithm());
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");

@@ -1,6 +1,6 @@
 package App;
 
-import App.Model.RetrievalAlgorithm;
+import App.Model.RetrievalAlgorithmType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -35,6 +35,6 @@ public class ParameterFileParserTest {
         Assertions.assertEquals("data/queries.txt", parameterFileParser.getQueryFile());
         Assertions.assertEquals("data/docs.txt", parameterFileParser.getDocFiles());
         Assertions.assertEquals("out/output.txt", parameterFileParser.getOutputFile());
-        Assertions.assertEquals(RetrievalAlgorithm.Basic, parameterFileParser.getRetrievalAlgorithm());
+        Assertions.assertEquals(RetrievalAlgorithmType.Basic, parameterFileParser.getRetrievalAlgorithm());
     }
 }

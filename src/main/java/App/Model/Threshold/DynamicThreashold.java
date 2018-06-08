@@ -1,4 +1,4 @@
-package App.Model;
+package App.Model.Threshold;
 import java.util.Arrays;
 
 import org.apache.lucene.search.ScoreDoc;

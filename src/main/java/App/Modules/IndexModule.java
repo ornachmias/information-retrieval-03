@@ -1,6 +1,6 @@
 package App.Modules;
 
-import App.Model.RetrivalAlgInterface;
+import App.Model.IRetrivalAlgorithm;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.document.Document;
@@ -8,7 +8,6 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
@@ -20,10 +19,10 @@ public class IndexModule {
     private RAMDirectory _index;
     private IndexWriterConfig _config;
 
-    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, RetrivalAlgInterface alg) {
+    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, IRetrivalAlgorithm alg) {
         _index = index;
-        Analyzer analyzer = alg.GetAnalyzer(preDefinedStopWords);
-        _config = alg.GetIndexWriterConfig(analyzer);
+        Analyzer analyzer = alg.getAnalyzer(preDefinedStopWords);
+        _config = alg.getIndexWriterConfig(analyzer);
     }
 
     public void indexDocs(Map<String,String> docs) throws IOException {

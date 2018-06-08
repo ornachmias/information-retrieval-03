@@ -1,5 +1,6 @@
 package App.Model;
 
+import App.Model.Threshold.IThreshold;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;

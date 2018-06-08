@@ -1,4 +1,4 @@
-package App.Model;
+package App.Model.Threshold;
 import org.apache.lucene.search.ScoreDoc;
 
 public interface IThreshold {

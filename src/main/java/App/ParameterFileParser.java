@@ -1,6 +1,6 @@
 package App;
 
-import App.Model.RetrievalAlgorithm;
+import App.Model.RetrievalAlgorithmType;
 
 import java.io.IOException;
 import java.util.InvalidPropertiesFormatException;
@@ -13,7 +13,7 @@ public class ParameterFileParser {
     private String _docFiles;
     private String _outputFile;
     private String _truthFile = null;
-    private RetrievalAlgorithm _retrievalAlgorithm;
+    private RetrievalAlgorithmType _retrievalAlgorithm;
 
     private final String _queryFilePrefix = "queryFile=";
     private final String _docFilesPrefix = "docsFile=";
@@ -42,7 +42,7 @@ public class ParameterFileParser {
         return _truthFile;
     }
 
-    public RetrievalAlgorithm getRetrievalAlgorithm() {
+    public RetrievalAlgorithmType getRetrievalAlgorithm() {
         return _retrievalAlgorithm;
     }
     //endregion
@@ -66,12 +66,12 @@ public class ParameterFileParser {
             else if (line.startsWith(_retrievalAlgorithmPrefix)){
                 String value = line.split(_retrievalAlgorithmPrefix)[1];
                 if (value.equals("basic")){
-                    _retrievalAlgorithm = RetrievalAlgorithm.Basic;
+                    _retrievalAlgorithm = RetrievalAlgorithmType.Basic;
                 } else if (value.equals("improved")){
-                    _retrievalAlgorithm = RetrievalAlgorithm.Improved;
+                    _retrievalAlgorithm = RetrievalAlgorithmType.Improved;
                 }
                 else {
-                    _retrievalAlgorithm = RetrievalAlgorithm.Unknown;
+                    _retrievalAlgorithm = RetrievalAlgorithmType.Unknown;
                 }
             }
         }
@@ -89,7 +89,7 @@ public class ParameterFileParser {
         else if (_docFiles == null || _docFiles.equals("")) {
             throw new InvalidPropertiesFormatException("DocFiles field was not defined in parameters file.");
         }
-        else if (_retrievalAlgorithm == RetrievalAlgorithm.Unknown) {
+        else if (_retrievalAlgorithm == RetrievalAlgorithmType.Unknown) {
             throw new InvalidPropertiesFormatException("RetrievalAlgorithm field was not defined in parameters file.");
         }
     }

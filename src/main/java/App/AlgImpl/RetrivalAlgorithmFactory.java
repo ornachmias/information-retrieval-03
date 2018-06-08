@@ -1,14 +1,11 @@
-package App;
+package App.AlgImpl;
 
-
-import App.AlgImpl.BasicAlgorithm;
 import App.Model.IRetrivalAlgorithm;
-import App.AlgImpl.ImprovedAlgorithm;
-import App.Model.*;
+import App.Model.RetrievalAlgorithmType;
 
 public class RetrivalAlgorithmFactory {
-    public static IRetrivalAlgorithm GetAlg(RetrievalAlgorithm alg_type) {
-        if (alg_type == RetrievalAlgorithm.Improved) {
+    public static IRetrivalAlgorithm GetAlg(RetrievalAlgorithmType alg_type) {
+        if (alg_type == RetrievalAlgorithmType.Improved) {
             return new ImprovedAlgorithm();
         }
         else {

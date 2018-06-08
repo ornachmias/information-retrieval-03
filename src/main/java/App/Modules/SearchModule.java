@@ -1,6 +1,6 @@
 package App.Modules;
 
-import App.Model.RetrivalAlgInterface;
+import App.Model.IRetrivalAlgorithm;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -17,29 +17,28 @@ import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SearchModule {
     private RAMDirectory _index;
-    private RetrivalAlgInterface _alg;
+    private IRetrivalAlgorithm _alg;
 
-    public SearchModule(RAMDirectory index, RetrivalAlgInterface alg) {
+    public SearchModule(RAMDirectory index, IRetrivalAlgorithm alg) {
         _alg = alg;
         _index = index;
     }
 
     public List<String> queryDocs(String queryString, int hitsPerPage) throws ParseException, IOException {
-        Analyzer analyzer = _alg.GetAnalyzer(null);
+        Analyzer analyzer = _alg.getAnalyzer(null);
         QueryParser queryParser = new QueryParser("content", analyzer);
         queryParser.setSplitOnWhitespace(true);
         Query q = queryParser.parse(queryString.trim());
         IndexReader reader = DirectoryReader.open(_index);
-        IndexSearcher searcher = _alg.GetSearcher(reader);
+        IndexSearcher searcher = _alg.getSearcher(reader);
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
         searcher.search(q, collector);
         ScoreDoc[] hits = collector.topDocs().scoreDocs;
-        ScoreDoc[] filtered_hits = _alg.FilterResults(hits);
+        ScoreDoc[] filtered_hits = _alg.getTopResults(hits);
         List<String> docs = new ArrayList<>();
         for (ScoreDoc hit : filtered_hits) {
             Document doc = searcher.doc(hit.doc);

@@ -1,7 +1,9 @@
 package App.Logic;
 
+import App.Model.IRetrivalAlgorithm;
 import App.Model.*;
-import App.RetAlgImpl;
+import App.Model.Threshold.BasicThreashold;
+import App.AlgImpl.RetrivalAlgorithmFactory;
 import App.Modules.SearchModule;
 import App.FileDataAccess;
 import App.Modules.IndexModule;
@@ -25,7 +27,7 @@ public class AssignmentLogic {
         _parameterFileParser = parameterFileParser;
     }
 
-    public SearchModule IndexDocs(Map<String, String> docs, RetrivalAlgInterface alg, List<String> stopWords) throws Exception {
+    public SearchModule IndexDocs(Map<String, String> docs, IRetrivalAlgorithm alg, List<String> stopWords) throws Exception {
         RAMDirectory index = new RAMDirectory();
         IndexModule indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)), alg);
         indexModule.indexDocs(docs);
@@ -35,8 +37,8 @@ public class AssignmentLogic {
 
     public List<String> GetStopWards(Map<String, String> docs) throws Exception {
         BasicThreashold th = new BasicThreashold(0);
-        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(RetrievalAlgorithm.Basic);
-        alg.SetFilter(th);
+        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
+        alg.setThreshold(th);
         // We first index the documents without taking stop words into account
         // so we could complete the assignment with stop words based on the do
         SearchModule searchModule = IndexDocs(docs, alg, new ArrayList<>());
@@ -71,8 +73,8 @@ public class AssignmentLogic {
     public Map<String, List<String>> run(String parametersFileName) throws Exception {
         // Get all relevant parameters
         _parameterFileParser.LoadContent(parametersFileName);
-        RetrievalAlgorithm alg_type = _parameterFileParser.getRetrievalAlgorithm();
-        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(alg_type);
+        RetrievalAlgorithmType alg_type = _parameterFileParser.getRetrievalAlgorithm();
+        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(alg_type);
 
         // Parse the documents
         Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
