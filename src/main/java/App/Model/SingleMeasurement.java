@@ -1,8 +1,8 @@
-package App;
+package App.Model;
 
 import java.util.List;
 
-class SingleMeasurement {
+public class SingleMeasurement {
     private List<String> _false_negatives;
     private List<String> _true_positives;
     private List<String> _false_positives;

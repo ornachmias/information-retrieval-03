@@ -1,5 +1,8 @@
-package App;
+package App.Logic;
 
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.core.SimpleAnalyzer;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -15,6 +18,8 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
+import org.apache.lucene.search.similarities.BM25Similarity;
+import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
@@ -24,7 +29,7 @@ public class BasicExample {
   public static void main(String[] args) throws IOException, ParseException {
     // 0. Specify the analyzer for tokenizing text.
     //    The same analyzer should be used for indexing and searching
-    StandardAnalyzer analyzer = new StandardAnalyzer();
+    Analyzer analyzer = new SimpleAnalyzer();
 
     // 1. create the index
     Directory index = new RAMDirectory();
@@ -33,10 +38,12 @@ public class BasicExample {
 
     // This sets TF-IDF similarity with cosine distance - may be used at the adcanced algorithm.
     // At the basic algorithm, we need to use normal distance - hence we need to imp[lement an other TFIDFSimilarity class.
-    config.setSimilarity(new ClassicSimilarity());
+    Similarity similarity = new ClassicSimilarity();
+    //similarity = new BM25Similarity();
+    config.setSimilarity(similarity);
 
     IndexWriter w = new IndexWriter(index, config);
-    addDoc(w, "Lucene-in-Action us", "193398817");
+    addDoc(w, "Lucene-in-Action us, another Lucene us", "193398817");
     addDoc(w, "Lucene us for Dummies", "55320055Z");
     addDoc(w, "Managing us Gigabytes", "55063554A");
     addDoc(w, "The Art of Computer Science", "9900333X");
@@ -51,12 +58,14 @@ public class BasicExample {
     int hitsPerPage = 10;
     IndexReader reader = DirectoryReader.open(index);
     IndexSearcher searcher = new IndexSearcher(reader);
+    searcher.setSimilarity(similarity);
     TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
     searcher.search(q, collector);
     ScoreDoc[] hits = collector.topDocs().scoreDocs;
 
     
     // 4. display results
+    System.out.println("Using similarity: " + similarity.toString());
     System.out.println("Found " + hits.length + " hits.");
     for(int i=0;i<hits.length;++i) {
       int docId = hits[i].doc;

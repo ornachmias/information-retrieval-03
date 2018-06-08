@@ -1,5 +1,7 @@
 package App;
 
+import App.Model.RetrievalAlgorithm;
+
 import java.io.IOException;
 import java.util.InvalidPropertiesFormatException;
 import java.util.List;
@@ -58,7 +60,6 @@ public class ParameterFileParser {
             else if (line.startsWith(_outputFilePrefix)){
                 _outputFile = line.split(_outputFilePrefix)[1];
             }
-
             else if (line.startsWith(_truthFilePrefix)){
                 _truthFile = line.split(_truthFilePrefix)[1];
             }

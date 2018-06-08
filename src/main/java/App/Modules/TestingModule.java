@@ -1,4 +1,7 @@
-package App;
+package App.Modules;
+
+import App.Model.Measurement;
+import App.Model.SingleMeasurement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
