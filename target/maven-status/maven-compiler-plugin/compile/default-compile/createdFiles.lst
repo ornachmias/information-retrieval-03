@@ -1,1 +1,8 @@
 App\Main.class
+App\LogHandler.class
+App\Logic\AssignmentLogic.class
+App\CommandLineInterface.class
+App\Model\SingleMeasurement.class
+App\Model\Measurement.class
+App\ParameterFileParser.class
+App\FileDataAccess.class
