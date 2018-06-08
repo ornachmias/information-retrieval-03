@@ -1,10 +1,11 @@
 package App;
 
+import App.Model.RetrivalAlgInterface;
 import App.Modules.IndexModule;
 import App.Modules.SearchModule;
+import App.Model.RetrievalAlgorithm;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.queryparser.classic.ParseException;
-import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.store.RAMDirectory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,9 +18,10 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_SearchDocument_DocumentsReturned() throws IOException, ParseException {
         // Arrange
+        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(RetrievalAlgorithm.Basic);
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, null, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, null, alg);
+        SearchModule searchModule = new SearchModule(index, alg);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");
@@ -38,9 +40,10 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_SearchDocument_DocumentReturned() throws IOException, ParseException {
         // Arrange
+        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(RetrievalAlgorithm.Basic);
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, null, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, null,alg);
+        SearchModule searchModule = new SearchModule(index, alg);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");
@@ -58,9 +61,10 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_TopWords_Return5MostUsedWords() throws Exception {
         // Arrange
+        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(RetrievalAlgorithm.Basic);
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, new ClassicSimilarity());
-        SearchModule searchModule = new SearchModule(index,new ClassicSimilarity());
+        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, alg);
+        SearchModule searchModule = new SearchModule(index, alg);
         FileDataAccess fileDataAccess = new FileDataAccess();
 
         String filePath = TestHelper.getFilePathFromResources("TestDocsFile");

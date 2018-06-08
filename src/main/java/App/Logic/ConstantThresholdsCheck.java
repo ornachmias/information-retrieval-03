@@ -1,13 +1,18 @@
 package App.Logic;
 
+import App.FileDataAccess;
 import App.Model.*;
+import App.ParameterFileParser;
 import App.RetAlgImpl;
 import App.Modules.SearchModule;
 
 import java.util.*;
 
-class RunDynamicThresholds extends AssignmentLogic {
+public class ConstantThresholdsCheck extends AssignmentLogic {
 
+    public ConstantThresholdsCheck(FileDataAccess fileDataAccess, ParameterFileParser parameterFileParser) {
+        super(fileDataAccess,parameterFileParser);
+    }
     public Map<String, List<String>> run(String parametersFileName) throws Exception {
         // Get all relevant parameters
         _parameterFileParser.LoadContent(parametersFileName);
@@ -23,15 +28,13 @@ class RunDynamicThresholds extends AssignmentLogic {
         // Parse queries
         Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
 
-        int threshold = 10;
+        float threshold = (float) 0.1;
         Map<String, List<String>> results = new HashMap<>();
-        while (threshold < 200){
-            alg.SetFilter(new DynamicThreashold(threshold));
+        while (threshold < 2) {
+            alg.SetFilter(new BasicThreashold(threshold));
             results = GetResults(docs, queries, searchModule);
             _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-            MeasureResults(results);
-            threshold += 1;
-            System.out.println(threshold);
+            threshold += 0.01;
         }
 
         return results;

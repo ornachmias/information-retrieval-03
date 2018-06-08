@@ -1,6 +1,6 @@
 package App;
 
-import App.Logic.RunConstantThresholds;
+import App.Logic.ConstantThresholdsCheck;
 import App.Model.RetrievalAlgorithm;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -26,7 +26,7 @@ public class RunConstantThresholdsTest {
 
         when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithm.Basic);
 
-        RunConstantThresholds runConstantThresholds = new RunConstantThresholds(fileDataAccess, parameterFileParser);
+        ConstantThresholdsCheck runConstantThresholds = new ConstantThresholdsCheck(fileDataAccess, parameterFileParser);
 
         // Act
         runConstantThresholds.run("dummy");

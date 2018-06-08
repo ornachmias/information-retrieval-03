@@ -1,12 +1,16 @@
 package App;
 
 import App.Logic.AssignmentLogic;
-import java.util.List;
+import App.Logic.ConstantThresholdsCheck;
+import App.Logic.DynamicThresholdsCheck;
 
+import java.util.List;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
+
+
         LogHandler.info("Starting main..");
         CommandLineInterface commandLineInterface = new CommandLineInterface();
         String fileName = commandLineInterface.getFile(args);

@@ -1,12 +1,10 @@
 package App.Logic;
 
+import App.*;
 import App.Model.*;
-import App.RetAlgImpl;
 import App.Modules.SearchModule;
-import App.FileDataAccess;
 import App.Modules.IndexModule;
 import App.Modules.TestingModule;
-import App.ParameterFileParser;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.store.RAMDirectory;
 
@@ -50,7 +48,7 @@ public class AssignmentLogic {
             Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
             TestingModule tester = new TestingModule(truthContent, results);
             Measurement measurement = tester.TestQueries();
-            System.out.println(measurement.GetAverageF());
+            LogHandler.info("AverageF=" + measurement.GetAverageF());
         }
     }
 

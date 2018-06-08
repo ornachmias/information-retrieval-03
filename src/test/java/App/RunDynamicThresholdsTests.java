@@ -1,7 +1,6 @@
 package App;
 
-import App.Logic.RunConstantThresholds;
-import App.Logic.RunDynamicThresholds;
+import App.Logic.DynamicThresholdsCheck;
 import App.Model.RetrievalAlgorithm;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -27,7 +26,7 @@ public class RunDynamicThresholdsTests {
 
         when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithm.Basic);
 
-        RunDynamicThresholds runDynamicThresholds = new RunDynamicThresholds(fileDataAccess, parameterFileParser);
+        DynamicThresholdsCheck runDynamicThresholds = new DynamicThresholdsCheck(fileDataAccess, parameterFileParser);
 
         // Act
         runDynamicThresholds.run("dummy");
