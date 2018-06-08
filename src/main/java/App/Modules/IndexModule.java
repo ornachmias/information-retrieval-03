@@ -1,6 +1,8 @@
 package App.Modules;
 
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
+import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -22,10 +24,10 @@ public class IndexModule {
     private Similarity _similarity;
 
     public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, Similarity similarity) throws IOException {
-        StandardAnalyzer analyzer = new StandardAnalyzer(preDefinedStopWords);
-
+//        StandardAnalyzer analyzer = new StandardAnalyzer(preDefinedStopWords);
+        Analyzer analyzer = new StopAnalyzer(preDefinedStopWords);
         if (preDefinedStopWords == null)
-            analyzer = new StandardAnalyzer();
+            analyzer = new StopAnalyzer();
 
         _similarity = similarity;
         _config = new IndexWriterConfig(analyzer);

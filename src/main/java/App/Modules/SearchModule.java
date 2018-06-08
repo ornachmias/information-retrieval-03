@@ -1,5 +1,7 @@
 package App.Modules;
 
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -22,7 +24,7 @@ import java.util.List;
 
 public class SearchModule {
     private RAMDirectory _index;
-    private StandardAnalyzer _analyzer;
+    private Analyzer _analyzer;
     private Similarity _similarity;
     private float _scoreThreshold = (float) 0.96;
     private int _dynamicThreshold = 100;
@@ -34,7 +36,7 @@ public class SearchModule {
     }
 
     public SearchModule(RAMDirectory index, Similarity similarity, float threshold, int dynamicThreshold) {
-        _analyzer = new StandardAnalyzer();
+        _analyzer = new StopAnalyzer();
         _similarity = similarity;
         _index = index;
         _scoreThreshold = threshold;
@@ -50,7 +52,7 @@ public class SearchModule {
         searcher.setSimilarity(_similarity);
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
         searcher.search(q, collector);
-        ScoreDoc[] hits = getTopResultsDynamically(collector.topDocs().scoreDocs);
+        ScoreDoc[] hits = getTopResultsByConstThreshold(collector.topDocs().scoreDocs);
 
         List<String> result = new ArrayList<>();
         for (ScoreDoc hit : hits) {
