@@ -1,13 +1,13 @@
 package App.Modules;
 
+import App.Model.RetrivalAlgInterface;
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
@@ -19,18 +19,11 @@ import java.util.Map;
 public class IndexModule {
     private RAMDirectory _index;
     private IndexWriterConfig _config;
-    private Similarity _similarity;
 
-    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, Similarity similarity) throws IOException {
-        StandardAnalyzer analyzer = new StandardAnalyzer(preDefinedStopWords);
-
-        if (preDefinedStopWords == null)
-            analyzer = new StandardAnalyzer();
-
-        _similarity = similarity;
-        _config = new IndexWriterConfig(analyzer);
-        _config.setSimilarity(_similarity);
+    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, RetrivalAlgInterface alg) {
         _index = index;
+        Analyzer analyzer = alg.GetAnalyzer(preDefinedStopWords);
+        _config = alg.GetIndexWriterConfig(analyzer);
     }
 
     public void indexDocs(Map<String,String> docs) throws IOException {

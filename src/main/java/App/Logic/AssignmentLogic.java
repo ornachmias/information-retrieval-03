@@ -1,65 +1,61 @@
 package App.Logic;
 
-import App.FileDataAccess;
-import App.Model.Measurement;
-import App.Modules.IndexModule;
+import App.Model.*;
+import App.RetAlgImpl;
 import App.Modules.SearchModule;
+import App.FileDataAccess;
+import App.Modules.IndexModule;
 import App.Modules.TestingModule;
 import App.ParameterFileParser;
 import org.apache.lucene.analysis.CharArraySet;
-import org.apache.lucene.search.similarities.ClassicSimilarity;
-import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.RAMDirectory;
 
 import java.util.*;
 
 public class AssignmentLogic {
 
-    private FileDataAccess _fileDataAccess;
-    private ParameterFileParser _parameterFileParser;
-
     public AssignmentLogic() {
-        _fileDataAccess = new FileDataAccess();
-        _parameterFileParser = new ParameterFileParser(_fileDataAccess);
     }
+
+    protected FileDataAccess _fileDataAccess;
+    protected ParameterFileParser _parameterFileParser;
 
     public AssignmentLogic(FileDataAccess fileDataAccess, ParameterFileParser parameterFileParser) {
         _fileDataAccess = fileDataAccess;
         _parameterFileParser = parameterFileParser;
     }
 
-    public Map<String, List<String>> run(String parametersFileName) throws Exception {
-        // Get all relevant parameters
-        _parameterFileParser.LoadContent(parametersFileName);
-
-        // Parse the documents
-        Map<String, String> docs =
-                _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
-
-        // Decide on Similarity equation for both index and search
-        Similarity similarity = new ClassicSimilarity();
-
-        // We first index the documents without taking stop words into account
-        // so we could complete the assignment with stop words based on the documents
+    public SearchModule IndexDocs(Map<String, String> docs, RetrivalAlgInterface alg, List<String> stopWords) throws Exception {
         RAMDirectory index = new RAMDirectory();
-        IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, similarity);
+        IndexModule indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)), alg);
         indexModule.indexDocs(docs);
+        SearchModule searchModule = new SearchModule(index, alg);
+        return searchModule;
+    }
 
-        SearchModule searchModule = new SearchModule(index, similarity);
+    public List<String> GetStopWards(Map<String, String> docs) throws Exception {
+        BasicThreashold th = new BasicThreashold(0);
+        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(RetrievalAlgorithm.Basic);
+        alg.SetFilter(th);
+        // We first index the documents without taking stop words into account
+        // so we could complete the assignment with stop words based on the do
+        SearchModule searchModule = IndexDocs(docs, alg, new ArrayList<>());
         List<String> stopWords = searchModule.getTopWords(20);
+        return stopWords;
+    }
 
-        // Reset objects and re-index using new stop words
-        index = new RAMDirectory();
-        indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)), similarity);
-        searchModule = new SearchModule(index, similarity);
-        indexModule.indexDocs(docs);
+    public void MeasureResults(Map<String, List<String>> results) throws Exception {
+        String truthFilePath = _parameterFileParser.getTruthFile();
+        if (truthFilePath != null) {
+            Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
+            TestingModule tester = new TestingModule(truthContent, results);
+            Measurement measurement = tester.TestQueries();
+            System.out.println(measurement.GetAverageF());
+        }
+    }
 
-        // Parse queries
-        Map<String, String> queries =
-                _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
-
+    public Map<String, List<String>> GetResults(Map<String, String> docs, Map<String, String> queries, SearchModule searchModule) throws Exception {
         Map<String, List<String>> results = new HashMap<>();
-
         for (String id : queries.keySet()) {
             String query = queries.get(id);
             // We set the size of the page as the total number of docs to avoid
@@ -68,16 +64,29 @@ public class AssignmentLogic {
             results.put(id, queryResults);
         }
 
+        return results;
+    }
+
+
+    public Map<String, List<String>> run(String parametersFileName) throws Exception {
+        // Get all relevant parameters
+        _parameterFileParser.LoadContent(parametersFileName);
+        RetrievalAlgorithm alg_type = _parameterFileParser.getRetrievalAlgorithm();
+        RetrivalAlgInterface alg = RetAlgImpl.GetAlg(alg_type);
+
+        // Parse the documents
+        Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
+
+        List<String> stopWords = GetStopWards(docs);
+        SearchModule searchModule = IndexDocs(docs, alg, stopWords);
+
+        // Parse queries
+        Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
+
+        Map<String, List<String>> results = GetResults(docs, queries, searchModule);
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-
-        String truthFilePath = _parameterFileParser.getTruthFile();
-        if (truthFilePath != null) {
-            Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
-            TestingModule tester = new TestingModule(truthContent, results);
-            Measurement measurement = tester.TestQueries();
-            System.out.println(measurement.GetAverageF());
-        }
-
+        MeasureResults(results);
         return results;
     }
 }
+
