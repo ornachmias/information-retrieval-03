@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 import org.apache.lucene.search.ScoreDoc;
 
-public class BasicThreashold implements IThreshold {
+public class BasicThreshold implements IThreshold {
 
     private double _th;
 
-    public BasicThreashold(double th) {
+    public BasicThreshold(double th) {
         _th = th;
     }
 

@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ccd7015-ead0-4ca6-90ba-589213ccc35d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/assignment03.iml" afterPath="$PROJECT_DIR$/assignment03.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/AlgImpl/ImprovedAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/App/AlgImpl/ImprovedAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/LogHandler.java" afterPath="$PROJECT_DIR$/src/main/java/App/LogHandler.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/AssignmentLogic.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/AssignmentLogic.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/RunConstantThresholds.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/RunDynamicThresholds.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Main.java" afterPath="$PROJECT_DIR$/src/main/java/App/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Measurement.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Measurement.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/BasicThreashold.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/BasicThreshold.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreashold.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreshold.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/BasicThreshold.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/BasicThreshold.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreshold.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreshold.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/App/IndexSearchIntegrationTests.java" afterPath="$PROJECT_DIR$/src/test/java/App/IndexSearchIntegrationTests.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/App/RunConstantThresholdsTest.java" afterPath="$PROJECT_DIR$/src/test/java/App/RunConstantThresholdsTest.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/App/RunDynamicThresholdsTests.java" afterPath="$PROJECT_DIR$/src/test/java/App/RunDynamicThresholdsTests.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App/Main.class" afterPath="$PROJECT_DIR$/target/classes/App/Main.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -80,18 +77,6 @@
               <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/Modules/IndexModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-              <folding>
-                <marker date="1528473119344" expanded="true" signature="868:875" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -708,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528475038207</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.gitignore&#10;#&#9;src/main/java/App/Logic/AssignmentLogic.java&#10;#&#9;src/main/java/App/Logic/ConstantThresholdsCheck.java&#10;#&#9;src/main/java/App/Logic/DynamicThresholdsCheck.java&#10;#&#9;src/test/java/App/IndexSearchIntegrationTests.java&#10;#&#9;src/test/java/App/RunConstantThresholdsTest.java&#10;#&#9;src/test/java/App/RunDynamicThresholdsTests.java">
+      <created>1528475642518</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1528475642518</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -890,13 +882,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.3.1/lucene-core-7.3.1.jar!/org/apache/lucene/search/TopDocs.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/TestSet01/data/docs.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -1291,6 +1276,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

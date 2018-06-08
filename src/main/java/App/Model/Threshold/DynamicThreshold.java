@@ -3,11 +3,11 @@ import java.util.Arrays;
 
 import org.apache.lucene.search.ScoreDoc;
 
-public class DynamicThreashold implements IThreshold {
+public class DynamicThreshold implements IThreshold {
 
     private double _th;
 
-    public DynamicThreashold(double th) {
+    public DynamicThreshold(double th) {
         _th = th;
     }
 

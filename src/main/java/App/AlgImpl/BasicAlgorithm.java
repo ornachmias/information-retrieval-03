@@ -1,7 +1,7 @@
 package App.AlgImpl;
 
 import App.Model.IRetrivalAlgorithm;
-import App.Model.Threshold.BasicThreashold;
+import App.Model.Threshold.BasicThreshold;
 import App.Model.Threshold.IThreshold;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
@@ -17,7 +17,7 @@ public class BasicAlgorithm implements IRetrivalAlgorithm {
 
     public BasicAlgorithm() {
 
-        _th = new BasicThreashold(12);
+        _th = new BasicThreshold(12);
     }
 
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {

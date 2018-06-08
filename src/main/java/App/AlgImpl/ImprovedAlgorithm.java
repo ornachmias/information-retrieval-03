@@ -1,7 +1,7 @@
 package App.AlgImpl;
 
 import App.Model.IRetrivalAlgorithm;
-import App.Model.Threshold.DynamicThreashold;
+import App.Model.Threshold.DynamicThreshold;
 import App.Model.Threshold.IThreshold;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
@@ -12,7 +12,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.ScoreDoc;
 
 public class ImprovedAlgorithm implements IRetrivalAlgorithm {
-    IThreshold _th = new DynamicThreashold(1.4);
+    IThreshold _th = new DynamicThreshold(1.4);
 
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {
         return _th.getTopResults(hits);
