@@ -1,7 +1,7 @@
 package App;
 
-import App.Logic.AssignmentLogic;
-import App.Model.RetrievalAlgorithmType;
+import App.Logic.ConstantThresholdsCheck;
+import App.Model.RetrievalAlgorithm;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -24,11 +24,11 @@ public class RunConstantThresholdsTest {
 
         when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
 
-        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Basic);
+        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithm.Basic);
 
-        AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
+        ConstantThresholdsCheck runConstantThresholds = new ConstantThresholdsCheck(fileDataAccess, parameterFileParser);
 
         // Act
-        assignmentLogic.run("dummy");
+        runConstantThresholds.run("dummy");
     }
 }

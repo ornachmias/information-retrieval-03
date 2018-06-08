@@ -13,8 +13,8 @@ public class LogHandler {
         URL url = LogHandler.class.getResource("/log4j.properties");
         PropertyConfigurator.configure(url.getPath());
         _logger  = Logger.getLogger("Assignment03");
+        System.out.println(_logger);
     }
-
     public static void info(String msg){
         _logger.info(msg);
     }
