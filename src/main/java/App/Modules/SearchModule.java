@@ -17,18 +17,28 @@ import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchModule {
     private RAMDirectory _index;
     private StandardAnalyzer _analyzer;
     private Similarity _similarity;
-    private final float _scoreThreshold = 12;
+    private float _scoreThreshold = (float) 0.96;
+    private int _dynamicThreshold = 100;
 
     public SearchModule(RAMDirectory index, Similarity similarity) {
         _analyzer = new StandardAnalyzer();
         _similarity = similarity;
         _index = index;
+    }
+
+    public SearchModule(RAMDirectory index, Similarity similarity, float threshold, int dynamicThreshold) {
+        _analyzer = new StandardAnalyzer();
+        _similarity = similarity;
+        _index = index;
+        _scoreThreshold = threshold;
+        _dynamicThreshold = dynamicThreshold;
     }
 
     public List<String> queryDocs(String queryString, int hitsPerPage) throws ParseException, IOException {
@@ -40,14 +50,12 @@ public class SearchModule {
         searcher.setSimilarity(_similarity);
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
         searcher.search(q, collector);
-        ScoreDoc[] hits = collector.topDocs().scoreDocs;
+        ScoreDoc[] hits = getTopResultsDynamically(collector.topDocs().scoreDocs);
 
         List<String> result = new ArrayList<>();
         for (ScoreDoc hit : hits) {
-            if (hit.score > _scoreThreshold){
-                Document doc = searcher.doc(hit.doc);
-                result.add(doc.get("id"));
-            }
+            Document doc = searcher.doc(hit.doc);
+            result.add(doc.get("id"));
         }
 
         reader.close();
@@ -63,6 +71,26 @@ public class SearchModule {
         }
 
         reader.close();
+        return result;
+    }
+
+    private ScoreDoc[] getTopResultsDynamically(ScoreDoc[] hits){
+        // Calculate ceiling for int
+        int a = hits.length;
+        int b = _dynamicThreshold;
+        int n = a / b + ((a % b == 0) ? 0 : 1);
+        ScoreDoc[] result = new ScoreDoc[n];
+        for(int i = 0; i < n; i++) {
+            result[i] = hits[i];
+        }
+        return result;
+    }
+
+    @Deprecated
+    private ScoreDoc[] getTopResultsByConstThreshold(ScoreDoc[] hits){
+        ScoreDoc[] result =
+                Arrays.stream(hits).filter(x-> x.score > _scoreThreshold).toArray(ScoreDoc[]::new);
+
         return result;
     }
 }

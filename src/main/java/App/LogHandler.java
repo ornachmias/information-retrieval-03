@@ -3,12 +3,15 @@ package App;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import java.net.URL;
+
 
 public class LogHandler {
     private static final Logger _logger;
 
     static{
-        PropertyConfigurator.configure("log4j.properties");
+        URL url = LogHandler.class.getResource("/log4j.properties");
+        PropertyConfigurator.configure(url.getPath());
         _logger  = Logger.getLogger("Assignment03");
     }
 
