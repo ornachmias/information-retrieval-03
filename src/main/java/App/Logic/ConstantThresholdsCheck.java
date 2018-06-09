@@ -23,8 +23,8 @@ public class ConstantThresholdsCheck extends AssignmentLogic {
         // Parse the documents
         Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
 
-        List<String> stopWords = GetStopWards(docs);
-        SearchModule searchModule = IndexDocs(docs, alg, stopWords);
+        List<String> stopWords = getStopWords(docs);
+        SearchModule searchModule = indexDocs(docs, alg, stopWords);
 
         // Parse queries
         Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
@@ -33,7 +33,7 @@ public class ConstantThresholdsCheck extends AssignmentLogic {
         Map<String, List<String>> results = new HashMap<>();
         while (threshold < 2) {
             alg.setThreshold(new BasicThreshold(threshold));
-            results = GetResults(docs, queries, searchModule);
+            results = getResults(docs, queries, searchModule);
             _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
             threshold += 0.01;
         }

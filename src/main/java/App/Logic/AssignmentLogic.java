@@ -25,7 +25,7 @@ public class AssignmentLogic {
         _parameterFileParser = parameterFileParser;
     }
 
-    public SearchModule IndexDocs(Map<String, String> docs, IRetrivalAlgorithm alg, List<String> stopWords) throws Exception {
+    public SearchModule indexDocs(Map<String, String> docs, IRetrivalAlgorithm alg, List<String> stopWords) throws Exception {
         RAMDirectory index = new RAMDirectory();
         IndexModule indexModule = new IndexModule(index, CharArraySet.copy(new HashSet<>(stopWords)), alg);
         indexModule.indexDocs(docs);
@@ -33,18 +33,18 @@ public class AssignmentLogic {
         return searchModule;
     }
 
-    public List<String> GetStopWards(Map<String, String> docs) throws Exception {
+    public List<String> getStopWords(Map<String, String> docs) throws Exception {
         BasicThreshold th = new BasicThreshold(0);
         IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
         alg.setThreshold(th);
         // We first index the documents without taking stop words into account
         // so we could complete the assignment with stop words based on the do
-        SearchModule searchModule = IndexDocs(docs, alg, new ArrayList<>());
+        SearchModule searchModule = indexDocs(docs, alg, new ArrayList<>());
         List<String> stopWords = searchModule.getTopWords(20);
         return stopWords;
     }
 
-    public void MeasureResults(Map<String, List<String>> results) throws Exception {
+    public void measureResults(Map<String, List<String>> results) throws Exception {
         String truthFilePath = _parameterFileParser.getTruthFile();
         if (truthFilePath != null) {
             Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
@@ -54,7 +54,7 @@ public class AssignmentLogic {
         }
     }
 
-    public Map<String, List<String>> GetResults(Map<String, String> docs, Map<String, String> queries, SearchModule searchModule) throws Exception {
+    public Map<String, List<String>> getResults(Map<String, String> docs, Map<String, String> queries, SearchModule searchModule) throws Exception {
         Map<String, List<String>> results = new HashMap<>();
         for (String id : queries.keySet()) {
             String query = queries.get(id);
@@ -77,15 +77,15 @@ public class AssignmentLogic {
         // Parse the documents
         Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
 
-        List<String> stopWords = GetStopWards(docs);
-        SearchModule searchModule = IndexDocs(docs, alg, stopWords);
+        List<String> stopWords = getStopWords(docs);
+        SearchModule searchModule = indexDocs(docs, alg, stopWords);
 
         // Parse queries
         Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
 
-        Map<String, List<String>> results = GetResults(docs, queries, searchModule);
+        Map<String, List<String>> results = getResults(docs, queries, searchModule);
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-        MeasureResults(results);
+        measureResults(results);
         return results;
     }
 }
