@@ -1,12 +1,16 @@
 package App.Model;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
+import java.util.List;
 
 public class Measurement {
     private Map<String, SingleMeasurement> _measurements;
-    double _f = 0;
-    double _p = 0;
-    double _r = 0;
+    double _average_f = 0;
+    double _average_p = 0;
+    double _average_r = 0;
+
 
     public Measurement(Map<String, SingleMeasurement> measurements) {
         _measurements = measurements;
@@ -29,28 +33,49 @@ public class Measurement {
             double recall = mes.GetRecall();
             if (precision != Double.MAX_VALUE) {
                 total_p += precision;
-                precision_samples+=1;
+                precision_samples += 1;
             }
 
             if (recall != Double.MAX_VALUE) {
                 total_r += recall;
-                recall_samples+=1;
+                recall_samples += 1;
             }
         }
-        _f = total_f / new Double(_measurements.size());
-        _p = total_p / precision_samples;
-        _r = total_r / recall_samples;
+        _average_f = total_f / new Double(_measurements.size());
+        _average_p = total_p / precision_samples;
+        _average_r = total_r / recall_samples;
     }
 
     public double GetAverageF() {
-        return _f;
+        return _average_f;
     }
 
     public double GetAveragePrecision() {
-        return _p;
+        return _average_p;
     }
 
     public double GetAverageRecall() {
-        return _r;
+        return _average_r;
+    }
+
+    public double GetMedianF() {
+        int idx = (int)Math.ceil(_measurements.size()/2-1.0);
+        List <SingleMeasurement> measurements = new ArrayList<>(_measurements.values());
+        Collections.sort(measurements);
+        return measurements.get(idx).GetF();
+    }
+
+    public double GetMedianPrecision() {
+        int idx = (int)Math.ceil(_measurements.size()/2-1.0);
+        List <SingleMeasurement> measurements = new ArrayList<>(_measurements.values());
+        Collections.sort(measurements);
+        return measurements.get(idx).GetPrecision();
+    }
+
+    public double GetMedianRecall() {
+        int idx = (int)Math.ceil(_measurements.size()/2-1.0);
+        List <SingleMeasurement> measurements = new ArrayList<>(_measurements.values());
+        Collections.sort(measurements);
+        return measurements.get(idx).GetRecall();
     }
 }
