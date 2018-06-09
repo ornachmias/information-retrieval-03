@@ -56,7 +56,7 @@ public class DynamicThresholdsCheck extends AssignmentLogic {
             alg.setThreshold(new DynamicThreshold(threshold));
             results = getResults(docs, queries, searchModule);
             _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-            MeasureResults(results, alg);
+            measureResults(results, alg);
             threshold += 0.005;
         }
 

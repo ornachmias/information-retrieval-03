@@ -15,10 +15,6 @@ import java.util.*;
 import java.io.PrintWriter;
 
 public class AssignmentLogic {
-
-    public AssignmentLogic() {
-    }
-
     protected FileDataAccess _fileDataAccess;
     protected ParameterFileParser _parameterFileParser;
     PrintWriter _csvPrinter = null;
@@ -47,7 +43,6 @@ public class AssignmentLogic {
         return stopWords;
     }
 
-    public void measureResults(Map<String, List<String>> results) throws Exception {
     private void printToCSV(String line) throws Exception{
         if (_csvPrinter == null) {
             File f = new File("out/results.csv");
@@ -56,7 +51,7 @@ public class AssignmentLogic {
                 FileOutputStream fop = new FileOutputStream(f, true);
                 PrintWriter out = new PrintWriter(fop);
                 out.println("Algorithm, ThresholdName, ThresholdValue, AverageF, AveragePrecision, AverageRecall");
-                 _csvPrinter = out;
+                _csvPrinter = out;
             }
             else{
                 FileOutputStream fop = new FileOutputStream(f, true);
@@ -80,7 +75,7 @@ public class AssignmentLogic {
         printToCSV(line);
     }
 
-    public void MeasureResults(Map<String, List<String>> results, IRetrivalAlgorithm alg) throws Exception {
+    public void measureResults(Map<String, List<String>> results, IRetrivalAlgorithm alg) throws Exception {
         String truthFilePath = _parameterFileParser.getTruthFile();
         if (truthFilePath != null) {
             Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
@@ -129,9 +124,7 @@ public class AssignmentLogic {
 
         Map<String, List<String>> results = getResults(docs, queries, searchModule);
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-        MeasureResults(results, alg);
-        measureResults(results);
+        measureResults(results, alg);
         return results;
     }
 }
-

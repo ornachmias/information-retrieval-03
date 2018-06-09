@@ -57,7 +57,7 @@ public class ConstantThresholdsCheck extends AssignmentLogic {
             alg.setThreshold(new BasicThreshold(threshold));
             results = getResults(docs, queries, searchModule);
             _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
-            MeasureResults(results, alg);
+            measureResults(results, alg);
             threshold += _window_jump;
         }
 
