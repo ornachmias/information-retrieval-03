@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ccd7015-ead0-4ca6-90ba-589213ccc35d" name="Default" comment="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/target/classes/App/Main.class" afterPath="$PROJECT_DIR$/target/classes/App/Main.class" />
     </list>
@@ -672,7 +671,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528559109010</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <created>1528559127306</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1528559127306</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
