@@ -1,0 +1,8 @@
+*.DS_Store
+logs
+*out*
+*target*
+pom.xml
+assignment03.iml
+*.DS_Store
+.idea

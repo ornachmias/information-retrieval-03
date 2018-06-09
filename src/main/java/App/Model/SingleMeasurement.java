@@ -1,8 +1,9 @@
 package App.Model;
 
+import java.util.Comparator;
 import java.util.List;
 
-public class SingleMeasurement {
+public class SingleMeasurement implements Comparable<SingleMeasurement> {
     private List<String> _false_negatives;
     private List<String> _true_positives;
     private List<String> _false_positives;
@@ -34,5 +35,20 @@ public class SingleMeasurement {
         return f;
     }
 
+
+    public int compareTo(SingleMeasurement o) {
+        double current = this.GetF();
+        double other = o.GetF();
+
+        if (current < other) {
+            return -1;
+        }
+        else if (current == other) {
+            return 0;
+        }
+        else {
+            return -1;
+        }
+    }
 }
 
