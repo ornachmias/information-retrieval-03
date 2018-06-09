@@ -24,7 +24,7 @@ public class Main {
         try {
             AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
             LogHandler.info("Running assignment logic..");
-            Map<String, List<String>> result = assignmentLogic.run(fileName);
+            Map<String, List<String>> result = assignmentLogic.run(fileName, null);
         } catch (Exception e) {
             e.printStackTrace();
         }

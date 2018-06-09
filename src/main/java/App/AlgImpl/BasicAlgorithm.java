@@ -5,6 +5,7 @@ import App.Model.Threshold.BasicThreshold;
 import App.Model.Threshold.IThreshold;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
+import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -26,9 +27,9 @@ public class BasicAlgorithm implements IRetrivalAlgorithm {
 
     public Analyzer getAnalyzer(CharArraySet preDefinedStopWords) {
         if (preDefinedStopWords == null) {
-            return new StandardAnalyzer();
+            return new StopAnalyzer();
         } else {
-            return new StandardAnalyzer(preDefinedStopWords);
+            return new StopAnalyzer(preDefinedStopWords);
         }
     }
 

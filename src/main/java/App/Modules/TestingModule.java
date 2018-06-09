@@ -39,7 +39,7 @@ public class TestingModule {
 
     public Measurement TestQueries() {
         Map<String, SingleMeasurement> measurements = new HashMap<>();
-        List <String> query_ids = new ArrayList<>(_truth.keySet());
+        List <String> query_ids = new ArrayList<>(_results.keySet());
         for (String id : query_ids) {
             SingleMeasurement mes = GetResultsForQuery(id);
             measurements.put(id, mes);

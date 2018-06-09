@@ -23,9 +23,6 @@ public class AssignmentLogicIntegrationTest {
         when(parameterFileParser.getQueryFile())
                 .thenReturn(TestHelper.getFilePathFromResources("TestSet01/data/queries.txt"));
 
-        when(parameterFileParser.getQueryFile())
-                .thenReturn(TestHelper.getFilePathFromResources("TestSet01/data/queries.txt"));
-
         when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
 
         when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Basic);
@@ -33,7 +30,7 @@ public class AssignmentLogicIntegrationTest {
         AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
 
         // Act
-        Map<String, List<String>> result = assignmentLogic.run("dummy");
+        Map<String, List<String>> result = assignmentLogic.run("dummy", null);
 
         // Assert
         Assertions.assertNotNull(result);
@@ -46,5 +43,85 @@ public class AssignmentLogicIntegrationTest {
         Assertions.assertTrue(result.get("42").contains("48"));
         Assertions.assertTrue(result.get("43").contains("329"));
         Assertions.assertTrue(result.get("43").contains("341"));
+    }
+
+    @Test
+    public void run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults() throws Exception {
+        // Arrange
+        FileDataAccess fileDataAccess = new FileDataAccess();
+        ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));
+        when(parameterFileParser.getDocFiles())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/docs.txt"));
+
+        when(parameterFileParser.getQueryFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/queries.txt"));
+
+        when(parameterFileParser.getTruthFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/truth.txt"));
+
+        when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
+
+        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Basic);
+
+        AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
+
+        // Act
+        Map<String, List<String>> result1 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result2 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result3 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result4 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result5 = assignmentLogic.run("dummy", 20);
+    }
+
+    @Test
+    public void run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults() throws Exception {
+        // Arrange
+        FileDataAccess fileDataAccess = new FileDataAccess();
+        ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));
+        when(parameterFileParser.getDocFiles())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/docs.txt"));
+
+        when(parameterFileParser.getQueryFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/queries.txt"));
+
+        when(parameterFileParser.getTruthFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/truth.txt"));
+
+        when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
+
+        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Basic);
+
+        AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
+
+        // Act
+        Map<String, List<String>> result1 = assignmentLogic.run("dummy", null);
+    }
+
+    @Test
+    public void run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults() throws Exception {
+        // Arrange
+        FileDataAccess fileDataAccess = new FileDataAccess();
+        ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));
+        when(parameterFileParser.getDocFiles())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/docs.txt"));
+
+        when(parameterFileParser.getQueryFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/data/queries.txt"));
+
+        when(parameterFileParser.getTruthFile())
+                .thenReturn(TestHelper.getFilePathFromResources("TestSet02/truth.txt"));
+
+        when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
+
+        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Improved);
+
+        AssignmentLogic assignmentLogic = new AssignmentLogic(fileDataAccess, parameterFileParser);
+
+        // Act
+        Map<String, List<String>> result1 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result2 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result3 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result4 = assignmentLogic.run("dummy", 20);
+        Map<String, List<String>> result5 = assignmentLogic.run("dummy", 20);
     }
 }

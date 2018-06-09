@@ -107,7 +107,7 @@ public class AssignmentLogic {
     }
 
 
-    public Map<String, List<String>> run(String parametersFileName) throws Exception {
+    public Map<String, List<String>> run(String parametersFileName, Integer batchSize) throws Exception {
         // Get all relevant parameters
         _parameterFileParser.LoadContent(parametersFileName);
         RetrievalAlgorithmType alg_type = _parameterFileParser.getRetrievalAlgorithm();
@@ -122,9 +122,26 @@ public class AssignmentLogic {
         // Parse queries
         Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
 
+        if (batchSize != null){
+            List<String> keys = new ArrayList<>(queries.keySet());
+            while (keys.size() > batchSize){
+                keys.remove(randomWithRange(0, keys.size() - 1));
+            }
+
+            Map<String, String> filteredQueries = new HashMap<>();
+            Map<String, String> finalQueries = queries;
+            keys.forEach(x-> filteredQueries.put(x, finalQueries.get(x)));
+            queries = filteredQueries;
+        }
+
         Map<String, List<String>> results = getResults(docs, queries, searchModule);
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
         measureResults(results, alg);
         return results;
+    }
+
+    int randomWithRange(int min, int max){
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
     }
 }
