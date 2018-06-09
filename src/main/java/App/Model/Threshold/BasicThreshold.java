@@ -12,6 +12,13 @@ public class BasicThreshold implements IThreshold {
         _th = th;
     }
 
+    public String getName() {
+        return "Constant";
+    }
+
+    public Double getValue() {
+        return _th;
+    }
 
     @Override
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {

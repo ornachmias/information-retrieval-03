@@ -1,4 +1,5 @@
 package App.Model.Threshold;
+
 import java.util.Arrays;
 
 import org.apache.lucene.search.ScoreDoc;
@@ -11,6 +12,13 @@ public class DynamicThreshold implements IThreshold {
         _th = th;
     }
 
+    public String getName() {
+        return "Dynamic";
+    }
+
+    public Double getValue() {
+        return _th;
+    }
 
     @Override
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {
@@ -18,7 +26,7 @@ public class DynamicThreshold implements IThreshold {
             return hits;
         }
 
-        double th  = hits[0].score / _th;
+        double th = hits[0].score / _th;
         ScoreDoc[] result =
                 Arrays.stream(hits).filter(x -> x.score > th).toArray(ScoreDoc[]::new);
 

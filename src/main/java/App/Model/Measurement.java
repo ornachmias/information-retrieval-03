@@ -20,18 +20,26 @@ public class Measurement {
         Double total_f = 0.0;
         Double total_p = 0.0;
         Double total_r = 0.0;
-        Double average_f;
-        Double average_p;
-        Double average_r;
+        int precision_samples = 0;
+        int recall_samples = 0;
 
         for (SingleMeasurement mes : _measurements.values()) {
             total_f += mes.GetF();
-            total_p += mes.GetPrecision();
-            total_r += mes.GetRecall();
+            double precision = mes.GetPrecision();
+            double recall = mes.GetRecall();
+            if (precision != Double.MAX_VALUE) {
+                total_p += precision;
+                precision_samples+=1;
+            }
+
+            if (recall != Double.MAX_VALUE) {
+                total_r += recall;
+                recall_samples+=1;
+            }
         }
         _f = total_f / new Double(_measurements.size());
-        _p = total_p / new Double(_measurements.size());
-        _r = total_r / new Double(_measurements.size());
+        _p = total_p / precision_samples;
+        _r = total_r / recall_samples;
     }
 
     public double GetAverageF() {
