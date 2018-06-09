@@ -39,4 +39,15 @@ public class ImprovedAlgorithm implements IRetrivalAlgorithm {
     public void setThreshold(IThreshold th) {
         _th = th;
     }
+
+
+    public String getName() {
+        return "Improved";
+    }
+
+    public IThreshold getThreshold() {
+        return _th;
+    }
+
 }
+

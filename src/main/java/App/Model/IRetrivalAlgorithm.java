@@ -13,5 +13,7 @@ public interface IRetrivalAlgorithm {
     Analyzer getAnalyzer(CharArraySet preDefinedStopWords);
     IndexWriterConfig getIndexWriterConfig(Analyzer analyzer);
     IndexSearcher getSearcher(IndexReader reader);
+    IThreshold getThreshold();
+    String getName();
     void setThreshold(IThreshold th);
 }

@@ -47,4 +47,13 @@ public class BasicAlgorithm implements IRetrivalAlgorithm {
     public void setThreshold(IThreshold th) {
         _th = th;
     }
+
+
+    public String getName() {
+        return "Basic";
+    }
+
+    public IThreshold getThreshold() {
+        return _th;
+    }
 }

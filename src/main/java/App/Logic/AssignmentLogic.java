@@ -9,8 +9,10 @@ import App.Modules.IndexModule;
 import App.Modules.TestingModule;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.store.RAMDirectory;
-
+import java.io.FileOutputStream;
+import java.io.File;
 import java.util.*;
+import java.io.PrintWriter;
 
 public class AssignmentLogic {
 
@@ -19,6 +21,7 @@ public class AssignmentLogic {
 
     protected FileDataAccess _fileDataAccess;
     protected ParameterFileParser _parameterFileParser;
+    PrintWriter _csvPrinter = null;
 
     public AssignmentLogic(FileDataAccess fileDataAccess, ParameterFileParser parameterFileParser) {
         _fileDataAccess = fileDataAccess;
@@ -45,12 +48,53 @@ public class AssignmentLogic {
     }
 
     public void measureResults(Map<String, List<String>> results) throws Exception {
+    private void printToCSV(String line) throws Exception{
+        if (_csvPrinter == null) {
+            File f = new File("out/results.csv");
+            if (!f.exists()) {
+                f.createNewFile();
+                FileOutputStream fop = new FileOutputStream(f, true);
+                PrintWriter out = new PrintWriter(fop);
+                out.println("Algorithm, ThresholdName, ThresholdValue, AverageF, AveragePrecision, AverageRecall");
+                 _csvPrinter = out;
+            }
+            else{
+                FileOutputStream fop = new FileOutputStream(f, true);
+                _csvPrinter = new PrintWriter(fop);
+            }
+        }
+
+        _csvPrinter.println(line);
+        _csvPrinter.flush();
+    }
+
+    public void writeMeasurements(Measurement measurement, IRetrivalAlgorithm alg) throws Exception{
+        String line = String.format("%1$s, %2$s, %3$s, %4$f, %5$f, %6$f",
+                alg.getName(),
+                alg.getThreshold().getName(),
+                alg.getThreshold().getValue(),
+                measurement.GetAverageF(),
+                measurement.GetAveragePrecision(),
+                measurement.GetAverageRecall()
+        );
+        printToCSV(line);
+    }
+
+    public void MeasureResults(Map<String, List<String>> results, IRetrivalAlgorithm alg) throws Exception {
         String truthFilePath = _parameterFileParser.getTruthFile();
         if (truthFilePath != null) {
             Map truthContent = _fileDataAccess.parseTruthFile(truthFilePath);
             TestingModule tester = new TestingModule(truthContent, results);
             Measurement measurement = tester.TestQueries();
-            LogHandler.info("AverageF=" + measurement.GetAverageF());
+            LogHandler.info(String.format("Algorithm=%1$s, ThresholdName=%2$s, ThresholdValue=%3$s, AverageF=%4$f, AveragePrecision=%5$f, AverageRecall=%6$f",
+                    alg.getName(),
+                    alg.getThreshold().getName(),
+                    alg.getThreshold().getValue(),
+                    measurement.GetAverageF(),
+                    measurement.GetAveragePrecision(),
+                    measurement.GetAverageRecall()));
+            writeMeasurements(measurement, alg);
+
         }
     }
 
@@ -85,6 +129,7 @@ public class AssignmentLogic {
 
         Map<String, List<String>> results = getResults(docs, queries, searchModule);
         _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
+        MeasureResults(results, alg);
         measureResults(results);
         return results;
     }

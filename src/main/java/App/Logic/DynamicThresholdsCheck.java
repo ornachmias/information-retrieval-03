@@ -10,16 +10,36 @@ import App.Modules.SearchModule;
 import java.util.*;
 
 public class DynamicThresholdsCheck extends AssignmentLogic {
-
+    double _start_window = 0.1;
+    double _end_window = 2;
+    RetrievalAlgorithmType _alg_type = RetrievalAlgorithmType.Unknown;
     public DynamicThresholdsCheck(FileDataAccess fileDataAccess, ParameterFileParser parameterFileParser) {
         super(fileDataAccess,parameterFileParser);
     }
 
+    public DynamicThresholdsCheck(FileDataAccess fileDataAccess,
+                                   ParameterFileParser parameterFileParser,
+                                   RetrievalAlgorithmType alg_type,
+                                   double start_window,
+                                   double end_window) {
+
+        super(fileDataAccess,parameterFileParser);
+        _alg_type = alg_type;
+        _start_window = start_window;
+        _end_window = end_window;
+    }
+
+
     public Map<String, List<String>> run(String parametersFileName) throws Exception {
         // Get all relevant parameters
         _parameterFileParser.LoadContent(parametersFileName);
-        RetrievalAlgorithmType alg_type = _parameterFileParser.getRetrievalAlgorithm();
-        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(alg_type);
+
+
+        if (_alg_type == RetrievalAlgorithmType.Unknown) {
+            _alg_type = _parameterFileParser.getRetrievalAlgorithm();
+        }
+
+        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(_alg_type);
 
         // Parse the documents
         Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());
@@ -30,12 +50,13 @@ public class DynamicThresholdsCheck extends AssignmentLogic {
         // Parse queries
         Map<String, String> queries = _fileDataAccess.parseQueriesFile(_parameterFileParser.getQueryFile());
 
-        double threshold = 1.0;
+        double threshold = _start_window;
         Map<String, List<String>> results = new HashMap<>();
-        while (threshold < 2){
+        while (threshold < _end_window){
             alg.setThreshold(new DynamicThreshold(threshold));
             results = getResults(docs, queries, searchModule);
             _fileDataAccess.writeResults(_parameterFileParser.getOutputFile(), results);
+            MeasureResults(results, alg);
             threshold += 0.005;
         }
 
