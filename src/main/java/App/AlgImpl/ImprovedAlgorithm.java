@@ -1,6 +1,6 @@
 package App.AlgImpl;
 
-import App.Model.IRetrivalAlgorithm;
+import App.Model.IRetrievalAlgorithm;
 import App.Model.Threshold.DynamicThreshold;
 import App.Model.Threshold.IThreshold;
 import org.apache.lucene.analysis.Analyzer;
@@ -11,8 +11,17 @@ import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.ScoreDoc;
 
-public class ImprovedAlgorithm implements IRetrivalAlgorithm {
-    IThreshold _th = new DynamicThreshold(1.4);
+// Comments on the methods can be found in the base interface
+public class ImprovedAlgorithm implements IRetrievalAlgorithm {
+
+    IThreshold _th;
+
+    /**
+     * Initialize the algorithm with threshold parameters
+     */
+    public ImprovedAlgorithm() {
+        _th = new DynamicThreshold(1.425);
+    }
 
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {
         return _th.getTopResults(hits);
@@ -39,7 +48,6 @@ public class ImprovedAlgorithm implements IRetrivalAlgorithm {
     public void setThreshold(IThreshold th) {
         _th = th;
     }
-
 
     public String getName() {
         return "Improved";

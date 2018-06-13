@@ -1,24 +1,27 @@
 package App.AlgImpl;
 
-import App.Model.IRetrivalAlgorithm;
+import App.Model.IRetrievalAlgorithm;
 import App.Model.Threshold.BasicThreshold;
 import App.Model.Threshold.IThreshold;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.core.StopAnalyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
 
-public class BasicAlgorithm implements IRetrivalAlgorithm {
+// Comments on the methods can be found in the base interface
+public class BasicAlgorithm implements IRetrievalAlgorithm {
     IThreshold _th;
 
+    /**
+     * Initialize the algorithm with threshold parameters
+     */
     public BasicAlgorithm() {
 
-        _th = new BasicThreshold(0.96);
+        _th = new BasicThreshold(0.99);
     }
 
     public ScoreDoc[] getTopResults(ScoreDoc[] hits) {

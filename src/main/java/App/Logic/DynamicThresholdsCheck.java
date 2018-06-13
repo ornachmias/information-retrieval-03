@@ -29,7 +29,12 @@ public class DynamicThresholdsCheck extends AssignmentLogic {
         _end_window = end_window;
     }
 
-
+    /**
+     * Run the assignment logic with different threhsold parameters
+     * @param parametersFileName Input parameter file defined by the user
+     * @return Map of queries ids to found documents
+     * @throws Exception
+     */
     public Map<String, List<String>> run(String parametersFileName) throws Exception {
         // Get all relevant parameters
         _parameterFileParser.LoadContent(parametersFileName);
@@ -39,7 +44,7 @@ public class DynamicThresholdsCheck extends AssignmentLogic {
             _alg_type = _parameterFileParser.getRetrievalAlgorithm();
         }
 
-        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(_alg_type);
+        IRetrievalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(_alg_type);
 
         // Parse the documents
         Map<String, String> docs = _fileDataAccess.parseDocsFile(_parameterFileParser.getDocFiles());

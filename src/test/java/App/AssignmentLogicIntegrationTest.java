@@ -46,7 +46,7 @@ public class AssignmentLogicIntegrationTest {
     }
 
     @Test
-    public void run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults() throws Exception {
+    public void run_MultipleDocs_RunBatchQueries_BasicAlgorithm_WriteLogWithDifferentScores() throws Exception {
         // Arrange
         FileDataAccess fileDataAccess = new FileDataAccess();
         ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));
@@ -74,7 +74,7 @@ public class AssignmentLogicIntegrationTest {
     }
 
     @Test
-    public void run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults() throws Exception {
+    public void run_MultipleDocs_RunAllQueries_BasicAlgorithm_WriteOutputFile() throws Exception {
         // Arrange
         FileDataAccess fileDataAccess = new FileDataAccess();
         ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));
@@ -98,7 +98,7 @@ public class AssignmentLogicIntegrationTest {
     }
 
     @Test
-    public void run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults() throws Exception {
+    public void run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile() throws Exception {
         // Arrange
         FileDataAccess fileDataAccess = new FileDataAccess();
         ParameterFileParser parameterFileParser = Mockito.mock((ParameterFileParser.class));

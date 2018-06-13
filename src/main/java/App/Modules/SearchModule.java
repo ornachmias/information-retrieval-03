@@ -1,6 +1,6 @@
 package App.Modules;
 
-import App.Model.IRetrivalAlgorithm;
+import App.Model.IRetrievalAlgorithm;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
@@ -21,9 +21,9 @@ import java.util.List;
 
 public class SearchModule {
     private RAMDirectory _index;
-    private IRetrivalAlgorithm _alg;
+    private IRetrievalAlgorithm _alg;
 
-    public SearchModule(RAMDirectory index, IRetrivalAlgorithm alg) {
+    public SearchModule(RAMDirectory index, IRetrievalAlgorithm alg) {
         _alg = alg;
         _index = index;
     }

@@ -24,7 +24,7 @@ public class RunDynamicThresholdsTests {
 
         when(parameterFileParser.getOutputFile()).thenReturn("out/output.txt");
 
-        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Basic);
+        when(parameterFileParser.getRetrievalAlgorithm()).thenReturn(RetrievalAlgorithmType.Improved);
 
         DynamicThresholdsCheck runDynamicThresholds = new DynamicThresholdsCheck(fileDataAccess, parameterFileParser);
 

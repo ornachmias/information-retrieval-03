@@ -1,6 +1,6 @@
 package App.Modules;
 
-import App.Model.IRetrivalAlgorithm;
+import App.Model.IRetrievalAlgorithm;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.document.Document;
@@ -19,7 +19,7 @@ public class IndexModule {
     private RAMDirectory _index;
     private IndexWriterConfig _config;
 
-    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, IRetrivalAlgorithm alg) {
+    public IndexModule(RAMDirectory index, CharArraySet preDefinedStopWords, IRetrievalAlgorithm alg) {
         _index = index;
         Analyzer analyzer = alg.getAnalyzer(preDefinedStopWords);
         _config = alg.getIndexWriterConfig(analyzer);

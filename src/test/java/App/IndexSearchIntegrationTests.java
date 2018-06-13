@@ -1,7 +1,7 @@
 package App;
 
 import App.AlgImpl.RetrivalAlgorithmFactory;
-import App.Model.IRetrivalAlgorithm;
+import App.Model.IRetrievalAlgorithm;
 import App.Model.RetrievalAlgorithmType;
 import App.Modules.IndexModule;
 import App.Modules.SearchModule;
@@ -19,7 +19,7 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_SearchDocument_DocumentsReturned() throws IOException, ParseException {
         // Arrange
-        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
+        IRetrievalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
         RAMDirectory index = new RAMDirectory();
         IndexModule indexModule = new IndexModule(index, null, alg);
         SearchModule searchModule = new SearchModule(index, alg);
@@ -41,7 +41,7 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_SearchDocument_DocumentReturned() throws IOException, ParseException {
         // Arrange
-        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
+        IRetrievalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
         RAMDirectory index = new RAMDirectory();
         IndexModule indexModule = new IndexModule(index, null,alg);
         SearchModule searchModule = new SearchModule(index, alg);
@@ -62,7 +62,7 @@ public class IndexSearchIntegrationTests {
     @Test
     public void IndexDocuments_TopWords_Return5MostUsedWords() throws Exception {
         // Arrange
-        IRetrivalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
+        IRetrievalAlgorithm alg = RetrivalAlgorithmFactory.GetAlg(RetrievalAlgorithmType.Basic);
         RAMDirectory index = new RAMDirectory();
         IndexModule indexModule = new IndexModule(index, CharArraySet.EMPTY_SET, alg);
         SearchModule searchModule = new SearchModule(index, alg);
