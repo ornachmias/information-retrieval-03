@@ -10,8 +10,7 @@ public class LogHandler {
     private static final Logger _logger;
 
     static{
-        URL url = LogHandler.class.getResource("/log4j.properties");
-        PropertyConfigurator.configure(url.getPath());
+        PropertyConfigurator.configure("log4j.properties");
         _logger  = Logger.getLogger("Assignment03");
     }
     public static void info(String msg){

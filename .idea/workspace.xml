@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ccd7015-ead0-4ca6-90ba-589213ccc35d" name="Default" comment="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/App/Model/IRetrievalAlgorithm.java" />
+    <list default="true" id="9ccd7015-ead0-4ca6-90ba-589213ccc35d" name="Default" comment="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;                       &#10;                       # Conflicts:&#10;                       #&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/AlgImpl/ImprovedAlgorithm.java" afterPath="$PROJECT_DIR$/src/main/java/App/AlgImpl/ImprovedAlgorithm.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/AlgImpl/RetrivalAlgorithmFactory.java" afterPath="$PROJECT_DIR$/src/main/java/App/AlgImpl/RetrivalAlgorithmFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/AssignmentLogic.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/AssignmentLogic.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" afterPath="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/IRetrivalAlgorithm.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/IThreshold.java" afterPath="$PROJECT_DIR$/src/main/java/App/Model/Threshold/IThreshold.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Modules/IndexModule.java" afterPath="$PROJECT_DIR$/src/main/java/App/Modules/IndexModule.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App/Modules/SearchModule.java" afterPath="$PROJECT_DIR$/src/main/java/App/Modules/SearchModule.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/App/IndexSearchIntegrationTests.java" afterPath="$PROJECT_DIR$/src/test/java/App/IndexSearchIntegrationTests.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/App/RunDynamicThresholdsTests.java" afterPath="$PROJECT_DIR$/src/test/java/App/RunDynamicThresholdsTests.java" />
+      <change beforePath="$PROJECT_DIR$/assignment03.iml" afterPath="$PROJECT_DIR$/assignment03.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App/LogHandler.java" afterPath="$PROJECT_DIR$/src/main/java/App/LogHandler.java" />
       <change beforePath="$PROJECT_DIR$/target/assignment03-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/assignment03-1.0-SNAPSHOT.jar" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,36 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="BasicAlgorithm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#884#885#0" expanded="true" />
-                <element signature="e#930#931#0" expanded="true" />
-                <element signature="e#1651#1652#0" expanded="true" />
-                <element signature="e#1675#1676#0" expanded="true" />
-                <element signature="e#1707#1708#0" expanded="true" />
-                <element signature="e#1737#1738#0" expanded="true" />
-                <element signature="e#1777#1778#0" expanded="true" />
-                <element signature="e#1803#1804#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RetrievalAlgorithmType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/RetrievalAlgorithmType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SingleMeasurement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/SingleMeasurement.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -74,7 +35,7 @@
       <file leaf-file-name="IndexModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App/Modules/IndexModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
+            <state relative-caret-position="250">
               <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -88,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/App/Modules/SearchModule.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="775">
-              <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+              <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
               <folding>
                 <marker date="1528905145900" expanded="true" signature="2390:2419" ph="{...}" />
               </folding>
@@ -106,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileDataAccess.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileDataAccess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+            <state relative-caret-position="25">
+              <caret line="90" column="53" lean-forward="false" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
               <folding>
                 <element signature="method#readFile#0;class#FileDataAccess#0" expanded="false" />
                 <element signature="method#readFileLines#0;class#FileDataAccess#0" expanded="false" />
@@ -120,31 +81,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicThreshold.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/Threshold/BasicThreshold.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/App/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="575">
+              <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+              <folding>
+                <marker date="1528553729851" expanded="true" signature="159:1076" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DynamicThreshold.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreshold.java">
+      <file leaf-file-name="LogHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/App/LogHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="225">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="e#354#355#0" expanded="true" />
+                <element signature="e#387#388#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="74" lean-forward="false" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IThreshold.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/Threshold/IThreshold.java">
+      <file leaf-file-name="AssignmentLogicIntegrationTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="39" lean-forward="false" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+            <state relative-caret-position="308">
+              <caret line="100" column="82" lean-forward="false" selection-start-line="100" selection-start-column="82" selection-end-line="100" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -210,13 +196,11 @@
         <option value="$PROJECT_DIR$/src/main/java/App/FileDataAccess.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/AssignmentLogic.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Model/SingleMeasurement.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/App/BasicExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Logic/TestIndexer.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Logic/BasicExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Model/SimpleTfIdfSimilarity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/App/LogHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Logic/TestThresholds.java" />
         <option value="$PROJECT_DIR$/src/test/java/App/TestThresholdsTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Modules/SearchModule.java" />
@@ -252,6 +236,8 @@
         <option value="$PROJECT_DIR$/src/main/java/App/Logic/ConstantThresholdsCheck.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Logic/DynamicThresholdsCheck.java" />
         <option value="$PROJECT_DIR$/src/main/java/App/Model/Threshold/IThreshold.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/App/LogHandler.java" />
       </list>
     </option>
   </component>
@@ -273,6 +259,16 @@
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="assignment03" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="assignment03" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="assignment03" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
@@ -303,7 +299,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -326,67 +322,6 @@
               <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
               <item name="assignment03" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="AlgImpl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="Logic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-              <item name="Threshold" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
-              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,13 +338,20 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="App" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="assignment03" type="b2602c69:ProjectViewProjectNode" />
+              <item name="assignment03" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,7 +382,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults">
+  <component name="RunManager" selected="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -487,31 +429,6 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="App.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="assignment03" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="App" />
-      <option name="MAIN_CLASS_NAME" value="App.AssignmentLogicIntegrationTest" />
-      <option name="METHOD_NAME" value="run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -525,6 +442,31 @@
       <option name="PACKAGE_NAME" value="App" />
       <option name="MAIN_CLASS_NAME" value="App.AssignmentLogicIntegrationTest" />
       <option name="METHOD_NAME" value="run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="assignment03" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="App" />
+      <option name="MAIN_CLASS_NAME" value="App.AssignmentLogicIntegrationTest" />
+      <option name="METHOD_NAME" value="run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -649,18 +591,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RunConstantThresholdsTest.run_tryMultipleThreshold_getAllResults" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.RunDynamicThresholdsTests.run_changeDynamicThreshold_getAllResults" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.RunDynamicThresholdsTests.run_changeDynamicThreshold_getAllResults" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.RunDynamicThresholdsTests.run_changeDynamicThreshold_getAllResults" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.RunConstantThresholdsTest.run_tryMultipleThreshold_getAllResults" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.RunDynamicThresholdsTests.run_changeDynamicThreshold_getAllResults" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.RunConstantThresholdsTest.run_tryMultipleThreshold_getAllResults" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AssignmentLogicIntegrationTest.run_MultipleDocs_RunAllQueries_BasicAlgorithm_ReturnResults" />
       </list>
     </recent_temporary>
   </component>
@@ -872,13 +814,17 @@
       <option name="project" value="LOCAL" />
       <updated>1528559184854</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="(1) Minor fixes after writing the report&#10;(2) Added comments">
+      <created>1528906358945</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1528906358945</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AssignmentLogicIntegrationTest_run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults - 2018.06.09 at 17h 46m 05s.xml">
-      <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_BasicAlgorithm_ReturnResults" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AssignmentLogicIntegrationTest_run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults - 2018.06.09 at 18h 20m 40s.xml">
       <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" configurationId="JUnit" />
     </history-entry>
@@ -887,6 +833,9 @@
     </history-entry>
     <history-entry file="AssignmentLogicIntegrationTest_run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults - 2018.06.13 at 16h 41m 20s.xml">
       <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_ReturnResults" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AssignmentLogicIntegrationTest_run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile - 2018.06.13 at 20h 54m 21s.xml">
+      <configuration name="AssignmentLogicIntegrationTest.run_MultipleDocs_RunBatchQueries_ImprovedAlgorithm_WriteOutputFile" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RunConstantThresholdsTest_run_tryMultipleThreshold_getAllResults - 2018.06.13 at 12h 37m 35s.xml">
       <configuration name="RunConstantThresholdsTest.run_tryMultipleThreshold_getAllResults" configurationId="JUnit" />
@@ -912,6 +861,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -923,19 +873,18 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16809523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32663316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35016465" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35008374" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32663316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -961,28 +910,29 @@
     <MESSAGE value="Minor refactor" />
     <MESSAGE value="MInor changes" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ornachmias/information-retrieval&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="(1) Minor fixes after writing the report&#10;(2) Added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="(1) Minor fixes after writing the report&#10;(2) Added comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/App/LogHandler.java</url>
-          <line>12</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/App/RunConstantThresholdsTest.java</url>
           <line>31</line>
           <properties />
           <option name="timeStamp" value="57" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/App/LogHandler.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="63" />
+      <option name="time" value="64" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1093,13 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="74" lean-forward="false" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/Measurement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1173,16 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App/LogHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#418#419#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/Logic/TestIndexer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1090">
@@ -1208,16 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/App/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
-          <folding>
-            <marker date="1528553729851" expanded="true" signature="159:1076" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/output.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1229,14 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,14 +1167,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="100" column="82" lean-forward="false" selection-start-line="100" selection-start-column="82" selection-end-line="100" selection-end-column="82" />
           <folding />
         </state>
       </provider>
@@ -1285,11 +1192,11 @@
         <state relative-caret-position="675">
           <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#734#735#0" expanded="false" />
+            <element signature="e#783#784#0" expanded="false" />
+            <element signature="e#839#840#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1299,7 +1206,7 @@
         <state relative-caret-position="425">
           <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1330,18 +1237,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/AlgImpl/BasicAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        <state relative-caret-position="500">
+          <caret line="32" column="38" lean-forward="false" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#1651#1652#0" expanded="true" />
-            <element signature="e#1675#1676#0" expanded="true" />
-            <element signature="e#1707#1708#0" expanded="true" />
-            <element signature="e#1737#1738#0" expanded="true" />
-            <element signature="e#1777#1778#0" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#884#885#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1675#1676#0" expanded="false" />
+            <element signature="e#1707#1708#0" expanded="false" />
+            <element signature="e#1737#1738#0" expanded="false" />
+            <element signature="e#1777#1778#0" expanded="false" />
+            <element signature="e#1803#1804#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1356,7 +1263,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/Model/Threshold/DynamicThreshold.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
+        <state relative-caret-position="100">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
@@ -1388,7 +1295,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/Modules/IndexModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
+        <state relative-caret-position="250">
           <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1400,7 +1307,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/App/Modules/SearchModule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
-          <caret line="48" column="20" lean-forward="true" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
+          <caret line="48" column="20" lean-forward="false" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="20" />
           <folding>
             <marker date="1528905145900" expanded="true" signature="2390:2419" ph="{...}" />
           </folding>
@@ -1425,12 +1332,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/App/FileDataAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
+        <state relative-caret-position="25">
+          <caret line="90" column="53" lean-forward="false" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
           <folding>
             <element signature="method#readFile#0;class#FileDataAccess#0" expanded="false" />
             <element signature="method#readFileLines#0;class#FileDataAccess#0" expanded="false" />
             <element signature="method#parseTruthFile#0;class#FileDataAccess#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="26" column="65" lean-forward="false" selection-start-line="26" selection-start-column="65" selection-end-line="26" selection-end-column="65" />
+          <folding>
+            <marker date="1528553729851" expanded="true" signature="159:1076" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="45" column="47" lean-forward="false" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/App/AssignmentLogicIntegrationTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="100" column="82" lean-forward="false" selection-start-line="100" selection-start-column="82" selection-end-line="100" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="74" lean-forward="false" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/App/LogHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#354#355#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
           </folding>
         </state>
       </provider>
